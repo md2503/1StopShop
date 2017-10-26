@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @recipe_product.amount %>
+</p>
+
+<p>
+  <strong>Measurement:</strong>
+  <%= @recipe_product.measurement %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_product_path(@recipe_product) %> |
+<%= link_to 'Back', recipe_products_path %>
