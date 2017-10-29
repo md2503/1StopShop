@@ -1,0 +1,7 @@
+<%# add navigation links to this file %>
+
+<% if logged_in? %>
+	<li> <%= link_to 'Update my info', '/users/' + "#{session[:user_id]}" + '/edit' %></li>
+	
+	<li> <%= link_to 'Users', '/users' %></li>
+<% end %>

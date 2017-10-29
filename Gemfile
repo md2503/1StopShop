@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 # A gem for the password digest
 gem 'bcrypt'
+
+#simple form
+gem 'simple_form'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record

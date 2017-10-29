@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'visitors/index'
+
+  get 'sessions/new'
+
   get 'pages/home'
 
   resources :products
@@ -9,12 +13,20 @@ Rails.application.routes.draw do
   resources :checklists
   resources :availabilities
   resources :recipes
+  resources :sessions, only: [:new, :create, :destroy]
   #root 'users#index'
-  root 'pages#home'
+  #root 'pages#home'
+  root 'visitors#index'
   resources :products
   resources :lists
   resources :branches
   resources :users
+  
+  get 'sessions/new' => 'sessions#new', as: :login
+  post 'sessions/new'=> 'sessions#create'
+  delete 'visitors/index' => 'sessions#destroy', as: :logout
+  get 'users/new' => 'users#new', as: :signup
+  post 'users/new' => 'users#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
