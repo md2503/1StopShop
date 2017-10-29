@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+
   resources :products
   resources :list_product_recipes
   resources :ingredients
@@ -7,7 +9,8 @@ Rails.application.routes.draw do
   resources :checklists
   resources :availabilities
   resources :recipes
-  root 'users#index'
+  #root 'users#index'
+  root 'pages#home'
   resources :products
   resources :lists
   resources :branches
