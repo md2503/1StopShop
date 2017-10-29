@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RecipeProductListTest < ActiveSupport::TestCase
+class ListProductRecipeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
