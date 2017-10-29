@@ -4,12 +4,10 @@ one:
   firstname: 
   lastname: 
   email: 
-  password: 
   dietaryrequirements: MyText
 
 two:
   firstname: 
   lastname: 
   email: 
-  password: 
   dietaryrequirements: MyText
