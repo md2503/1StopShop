@@ -11,9 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026112145) do
+ActiveRecord::Schema.define(version: 20171029063828) do
 
   create_table "availabilities", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "branch_id"
     t.float    "stock"
     t.integer  "aisleno"
     t.integer  "sectionno"
@@ -29,20 +31,48 @@ ActiveRecord::Schema.define(version: 20171026112145) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "list_users", force: :cascade do |t|
+  create_table "checklists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_recipes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groceries", force: :cascade do |t|
+    t.integer  "list_id"
+    t.integer  "product_id"
+    t.float    "quantity"
+    t.boolean  "availability"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "product_id"
+    t.float    "amount"
+    t.string   "measurement"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "list_product_recipes", force: :cascade do |t|
+    t.integer  "grocery_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "product_lists", force: :cascade do |t|
-    t.float    "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,37 +85,12 @@ ActiveRecord::Schema.define(version: 20171026112145) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipe_product_lists", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "recipe_products", force: :cascade do |t|
-    t.float    "amount"
-    t.string   "measurement"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.text     "dietary_requirements"
     t.integer  "serving"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-  end
-
-  create_table "recipies", force: :cascade do |t|
-    t.string   "name"
-    t.string   "category"
-    t.integer  "serves"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_recipes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
