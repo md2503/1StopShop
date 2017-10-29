@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ListUserTest < ActiveSupport::TestCase
+class ChecklistTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
