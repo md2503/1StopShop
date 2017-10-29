@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>List:</strong>
+  <%= @grocery.list_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @grocery.product_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @grocery.quantity %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @grocery.availability %>
+</p>
+
+<%= link_to 'Edit', edit_grocery_path(@grocery) %> |
+<%= link_to 'Back', groceries_path %>

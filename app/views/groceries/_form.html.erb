@@ -1,0 +1,33 @@
+<%= form_for(@grocery) do |f| %>
+  <% if @grocery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grocery.errors.count, "error") %> prohibited this grocery from being saved:</h2>
+
+      <ul>
+      <% @grocery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :list_id %><br>
+    <%= f.number_field :list_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :availability %><br>
+    <%= f.check_box :availability %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
