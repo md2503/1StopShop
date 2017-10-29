@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  resources :availabilities
   resources :recipes
   root 'users#index'
   resources :recipe_product_lists
   resources :recipe_products
   resources :user_recipes
-  resources :availabilities
   resources :list_users
   resources :product_lists
   resources :products

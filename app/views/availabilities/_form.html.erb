@@ -12,16 +12,24 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :branch_id %><br>
+    <%= f.number_field :branch_id %>
+  </div>
+  <div class="field">
     <%= f.label :stock %><br>
     <%= f.text_field :stock %>
   </div>
   <div class="field">
     <%= f.label :aisleno %><br>
-    <%= f.text_field :aisleno %>
+    <%= f.number_field :aisleno %>
   </div>
   <div class="field">
     <%= f.label :sectionno %><br>
-    <%= f.text_field :sectionno %>
+    <%= f.number_field :sectionno %>
   </div>
   <div class="actions">
     <%= f.submit %>

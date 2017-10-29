@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Product</th>
+      <th>Branch</th>
       <th>Stock</th>
       <th>Aisleno</th>
       <th>Sectionno</th>
@@ -15,6 +17,8 @@
   <tbody>
     <% @availabilities.each do |availability| %>
       <tr>
+        <td><%= availability.product_id %></td>
+        <td><%= availability.branch_id %></td>
         <td><%= availability.stock %></td>
         <td><%= availability.aisleno %></td>
         <td><%= availability.sectionno %></td>

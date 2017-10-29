@@ -69,6 +69,6 @@ class AvailabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def availability_params
-      params.require(:availability).permit(:stock, :aisleno, :sectionno)
+      params.require(:availability).permit(:product_id, :branch_id, :stock, :aisleno, :sectionno)
     end
 end
