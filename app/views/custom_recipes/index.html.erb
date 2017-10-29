@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Custom Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Recipe</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @custom_recipes.each do |custom_recipe| %>
+      <tr>
+        <td><%= custom_recipe.user_id %></td>
+        <td><%= custom_recipe.recipe_id %></td>
+        <td><%= link_to 'Show', custom_recipe %></td>
+        <td><%= link_to 'Edit', edit_custom_recipe_path(custom_recipe) %></td>
+        <td><%= link_to 'Destroy', custom_recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Custom recipe', new_custom_recipe_path %>

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  resources :custom_recipes
   resources :checklists
   resources :availabilities
   resources :recipes
   root 'users#index'
   resources :recipe_product_lists
   resources :recipe_products
-  resources :user_recipes
   resources :product_lists
   resources :products
   resources :lists
