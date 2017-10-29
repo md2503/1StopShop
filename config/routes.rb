@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ingredients
   resources :groceries
   resources :custom_recipes
   resources :checklists
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
   resources :recipes
   root 'users#index'
   resources :recipe_product_lists
-  resources :recipe_products
   resources :products
   resources :lists
   resources :branches
