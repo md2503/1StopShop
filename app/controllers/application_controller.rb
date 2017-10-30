@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   
   include SessionsHelper
   
-  
   before_action :authenticate
   
   private
@@ -15,6 +14,7 @@ class ApplicationController < ActionController::Base
 	    flash[:alert] = "Must be logged in!"
 	    redirect_to root_path
 	  end
+	  
 	end
   
   
