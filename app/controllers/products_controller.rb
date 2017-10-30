@@ -38,7 +38,18 @@ class ProductsController < ApplicationController
       end
     end
   end
-
+  
+  def add
+     @grocery = Grocery.new(grocery_params)
+    
+    @list.add_product(params)
+      if @list.save
+        redirect_to list_path
+      else
+        flash[:error] = "There was a problem adding this item to your list."
+        redirect_to root_path
+      end
+  end
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
@@ -68,7 +79,7 @@ class ProductsController < ApplicationController
     def set_list 
 	    @list=List.find(session[:list_id])
 	  rescue ActiveRecord::RecordNotFound
-	    @list = List.create
+	    @list = List.create()
 	    session[:list_id] = @list.id
 	  end
     # Use callbacks to share common setup or constraints between actions.
@@ -79,5 +90,9 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :category, :price, :brand)
+    end
+    
+    def grocery_params
+      params.require(:grocery).permit(:list_id, :product_id, :quantity, :availability)
     end
 end

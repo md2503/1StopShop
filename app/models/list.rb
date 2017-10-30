@@ -11,7 +11,7 @@ class List < ActiveRecord::Base
             current_item.quantity += product_params[:product][:quantity].to_i
             current_item.save
         else
-            new_item = groceries.create(product_id: product_params[:product][:product_id], quantity: product_params[:product][:quantity],list_id: self.id, availability: True)
+            new_item = groceries.create(list_id: self.id, product_id: product_params[:product][:product_id],  quantity: product_params[:product][:quantity], availability: True)
         end
             new_item
     end     
