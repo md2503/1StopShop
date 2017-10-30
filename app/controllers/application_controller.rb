@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   
   
-  before_action :authenticate
+  before_action :authenticate 
   
   private
 	def authenticate
