@@ -26,7 +26,14 @@ Rails.application.routes.draw do
   post 'sessions/new'=> 'sessions#create'
   delete 'visitors/index' => 'sessions#destroy', as: :logout
   get 'users/new' => 'users#new', as: :signup
+  get 'products/' => 'products#index', as: :productpage
+  get 'groceries/' => 'groceries#index', as: :grocerypage
   post 'users/new' => 'users#new'
+  get 'groceries/new' => 'groceries#new', as: :addgrocery
+  resources :add_to_list do 
+    post '/add_to_list/:product_id' => 'list#add_to_list' 
+    get '/add_to_list/:product_id' => 'list#add_to_list' 
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

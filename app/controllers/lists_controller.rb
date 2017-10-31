@@ -10,15 +10,26 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    
+  end
+  
+  def groceries
+    @groceries = Grocery.all
   end
 
   # GET /lists/new
   def new
     @list = List.new
+    @checklist = Checklist.create(list_id: @list.id, user_id: session[:user_id] )
   end
 
   # GET /lists/1/edit
   def edit
+  end
+  
+  def add_to_list
+    current_list.add_product(params[:product_id])
+    redirect_to productpage_path
   end
 
   # POST /lists
@@ -55,6 +66,7 @@ class ListsController < ApplicationController
   # DELETE /lists/1.json
   def destroy
     @list.destroy
+    #need to destroy from checklists also
     respond_to do |format|
       format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
       format.json { head :no_content }

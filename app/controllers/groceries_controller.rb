@@ -1,8 +1,7 @@
 class GroceriesController < ApplicationController
   before_action :set_grocery, only: [:show, :edit, :update, :destroy]
-  before_action :set_cart, only: [:create, :destroy]
   before_action :set_grocery, only: [:destroy]
-  before_action :set_list
+
 
   
   # GET /groceries
@@ -14,11 +13,13 @@ class GroceriesController < ApplicationController
   # GET /groceries/1
   # GET /groceries/1.json
   def show
+    redirect_to grocerypage_path
   end
 
   # GET /groceries/new
   def new
     @grocery = Grocery.new
+    
   end
 
   # GET /groceries/1/edit
@@ -29,14 +30,6 @@ class GroceriesController < ApplicationController
   # POST /groceries.json
   def create
     @grocery = Grocery.new(grocery_params)
-    
-    @list.add_product(params)
-      if @list.save
-        redirect_to list_path
-      else
-        flash[:error] = "There was a problem adding this item to your list."
-        redirect_to @product
-      end
     
     respond_to do |format|
       if @grocery.save
@@ -74,12 +67,7 @@ class GroceriesController < ApplicationController
   end
 
   private
-    def set_list 
-	    @list=List.find(session[:list_id])
-	  rescue ActiveRecord::RecordNotFound
-	    @list = List.create
-	    session[:list_id] = @list.id
-	  end
+
     
     # Use callbacks to share common setup or constraints between actions.
     def set_grocery

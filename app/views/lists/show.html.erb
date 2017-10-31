@@ -10,5 +10,33 @@
   <%= @list.date %>
 </p>
 
+<p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Quantity</th>
+        <th>Available?</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% Grocery.all.each do |thing| %>
+    
+      <tr>
+        <td><%= Product.find(thing.product_id).name %></td>
+        <td><%= thing.quantity %></td>
+        <td><%= thing.availability %></td>
+      </tr>
+
+      <% end %>
+    </tbody>
+    
+    
+  </table>
+
+</p>
+<%= link_to 'Add items', productpage_path %>
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
