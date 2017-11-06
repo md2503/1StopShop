@@ -1,18 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
+<h4 style="margin-left: 50px;">This is <%= @list.name %></h4>
 
-<p>
-  <strong>Date:</strong>
-  <%= @list.date %>
-</p>
+<p style="margin-left:50px;">Created on <%= @list.date %></p>
 
 <p>
   
-  <table>
+  <table style="margin-left: 55px;">
     <thead>
       <tr>
         <th>Product ID</th>
@@ -37,6 +31,5 @@
   </table>
 
 </p>
-<%= link_to 'Add items', productpage_path %>
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<div style="margin-left: 50px;"><%= link_to 'Add items', productpage_path %>
+</div>
