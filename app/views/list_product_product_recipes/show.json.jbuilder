@@ -1,0 +1,1 @@
+json.partial! "list_product_product_recipes/list_product_product_recipe", list_product_product_recipe: @list_product_product_recipe

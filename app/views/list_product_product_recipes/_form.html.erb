@@ -1,0 +1,27 @@
+<%= form_with(model: list_product_product_recipe, local: true) do |form| %>
+  <% if list_product_product_recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(list_product_product_recipe.errors.count, "error") %> prohibited this list_product_product_recipe from being saved:</h2>
+
+      <ul>
+      <% list_product_product_recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :list_product_id %>
+    <%= form.number_field :list_product_id, id: :list_product_product_recipe_list_product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_recipe_id %>
+    <%= form.number_field :product_recipe_id, id: :list_product_product_recipe_product_recipe_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

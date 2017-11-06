@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>List product:</strong>
+  <%= @list_product_product_recipe.list_product_id %>
+</p>
+
+<p>
+  <strong>Product recipe:</strong>
+  <%= @list_product_product_recipe.product_recipe_id %>
+</p>
+
+<%= link_to 'Edit', edit_list_product_product_recipe_path(@list_product_product_recipe) %> |
+<%= link_to 'Back', list_product_product_recipes_path %>

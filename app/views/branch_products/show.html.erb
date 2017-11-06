@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @branch_product.branch_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @branch_product.product_id %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @branch_product.stock %>
+</p>
+
+<p>
+  <strong>Aisleno:</strong>
+  <%= @branch_product.aisleno %>
+</p>
+
+<p>
+  <strong>Sectionno:</strong>
+  <%= @branch_product.sectionno %>
+</p>
+
+<%= link_to 'Edit', edit_branch_product_path(@branch_product) %> |
+<%= link_to 'Back', branch_products_path %>

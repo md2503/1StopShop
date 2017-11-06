@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  branch_id: 1
+  product_id: 1
+  stock: 1.5
+  aisleno: 1
+  sectionno: 1
+
+two:
+  branch_id: 1
+  product_id: 1
+  stock: 1.5
+  aisleno: 1
+  sectionno: 1

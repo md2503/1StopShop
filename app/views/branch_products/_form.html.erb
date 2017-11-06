@@ -1,0 +1,42 @@
+<%= form_with(model: branch_product, local: true) do |form| %>
+  <% if branch_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(branch_product.errors.count, "error") %> prohibited this branch_product from being saved:</h2>
+
+      <ul>
+      <% branch_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :branch_id %>
+    <%= form.number_field :branch_id, id: :branch_product_branch_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.number_field :product_id, id: :branch_product_product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stock %>
+    <%= form.text_field :stock, id: :branch_product_stock %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aisleno %>
+    <%= form.number_field :aisleno, id: :branch_product_aisleno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sectionno %>
+    <%= form.number_field :sectionno, id: :branch_product_sectionno %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
