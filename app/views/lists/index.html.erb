@@ -12,15 +12,20 @@
   </thead>
 
   <tbody>
-    <% @lists.each do |list| %>
+    <% Checklist.all.each do |check| %>
+      <% if check.user_id == session[:user_id] %>
+      <% @l = List.find(check.list_id) %>
+
+
       <tr>
-        <td><%= list.name %></td>
-        <td><%= list.date %></td>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @l.name %></td>
+        <td><%= @l.date %></td>
+        <td><%= link_to 'Show', @l %></td>
+        <td><%= link_to 'Edit', edit_list_path(@l) %></td>
+        <td><%= link_to 'Destroy', @l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
        
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

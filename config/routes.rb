@@ -29,10 +29,10 @@ Rails.application.routes.draw do
   get 'products/' => 'products#index', as: :productpage
   get 'groceries/' => 'groceries#index', as: :grocerypage
   post 'users/new' => 'users#new'
-  get 'groceries/new' => 'groceries#new', as: :addgrocery
+  get 'lists/add_item' => 'lists#add_item', as: :addgrocery
   resources :add_to_list do 
-    post '/add_to_list/:product_id' => 'list#add_to_list' 
-    get '/add_to_list/:product_id' => 'list#add_to_list' 
+    post '/add_to_list/:product_id/:list_id' => 'list#add_to_list' 
+    get '/add_to_list/:product_id/:list_id' => 'list#add_to_list' 
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

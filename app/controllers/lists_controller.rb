@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_to_list]
 
   # GET /lists
   # GET /lists.json
@@ -10,25 +10,21 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    
-  end
-  
-  def groceries
-    @groceries = Grocery.all
   end
 
   # GET /lists/new
   def new
     @list = List.new
-    @checklist = Checklist.create(list_id: @list.id, user_id: session[:user_id] )
   end
 
   # GET /lists/1/edit
   def edit
   end
   
-  def add_to_list
-    current_list.add_product(params[:product_id])
+  def add_item
+    $something = []
+    $something = add_to_list_path.split('/')
+    Grocery.create(product_id: $something[-1], list_id: @list.id, quantity:7, availability: 1)
     redirect_to productpage_path
   end
 
@@ -39,8 +35,10 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
+        Checklist.create(:user_id => session[:user_id], :list_id => @list.id)
         format.html { redirect_to @list, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
+        
       else
         format.html { render :new }
         format.json { render json: @list.errors, status: :unprocessable_entity }

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_list
+
 
 
   # GET /products
@@ -66,12 +66,7 @@ class ProductsController < ApplicationController
 
   private
     
-    def set_list 
-	    @list=List.find(session[:list_id])
-	  rescue ActiveRecord::RecordNotFound
-	    @list = List.create
-	    session[:list_id] = @list.id
-	  end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
