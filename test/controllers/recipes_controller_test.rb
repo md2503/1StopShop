@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class RecipesControllerTest < ActionDispatch::IntegrationTest
+class RecipesControllerTest < ActionController::TestCase
   setup do
     @recipe = recipes(:one)
   end
 
   test "should get index" do
-    get recipes_url
+    get :index
     assert_response :success
+    assert_not_nil assigns(:recipes)
   end
 
   test "should get new" do
-    get new_recipe_url
+    get :new
     assert_response :success
   end
 
   test "should create recipe" do
     assert_difference('Recipe.count') do
-      post recipes_url, params: { recipe: { dietaryreqs: @recipe.dietaryreqs, name: @recipe.name, serving: @recipe.serving } }
+      post :create, recipe: { dietaryreqs: @recipe.dietaryreqs, name: @recipe.name, serving: @recipe.serving }
     end
-
-    assert_redirected_to recipe_url(Recipe.last)
+    assert_redirected_to recipe_path(assigns(:recipe))
   end
 
   test "should show recipe" do
-    get recipe_url(@recipe)
+    get :show, id: @recipe
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_recipe_url(@recipe)
+    get :edit, id: @recipe
     assert_response :success
   end
 
   test "should update recipe" do
-    patch recipe_url(@recipe), params: { recipe: { dietaryreqs: @recipe.dietaryreqs, name: @recipe.name, serving: @recipe.serving } }
-    assert_redirected_to recipe_url(@recipe)
+    patch :update, id: @recipe, recipe: { dietaryreqs: @recipe.dietaryreqs, name: @recipe.name, serving: @recipe.serving }
+    assert_redirected_to recipe_path(assigns(:recipe))
   end
 
   test "should destroy recipe" do
     assert_difference('Recipe.count', -1) do
-      delete recipe_url(@recipe)
+      delete :destroy, id: @recipe
     end
 
-    assert_redirected_to recipes_url
+    assert_redirected_to recipes_path
   end
 end

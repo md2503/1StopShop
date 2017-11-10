@@ -1,5 +1,5 @@
 class ListProductProductRecipe < ApplicationRecord
-	belongs_to :ingredient
-	belongs_to :grocery
+	belongs_to :product_recipe
+	belongs_to :list_product
 
 end

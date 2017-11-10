@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_to_list]
 
   # GET /lists
   # GET /lists.json
@@ -20,6 +20,13 @@ class ListsController < ApplicationController
   # GET /lists/1/edit
   def edit
   end
+  
+  def add_item
+    $something = []
+    $something = add_to_list_path.split('/')
+    Grocery.create(product_id: $something[-1], list_id: @list.id, quantity:7, availability: 1)
+    redirect_to productpage_path
+  end
 
   # POST /lists
   # POST /lists.json
@@ -28,8 +35,10 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
+        ListUser.create(:user_id => session[:user_id], :list_id => @list.id)
         format.html { redirect_to @list, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
+        
       else
         format.html { render :new }
         format.json { render json: @list.errors, status: :unprocessable_entity }
@@ -55,6 +64,7 @@ class ListsController < ApplicationController
   # DELETE /lists/1.json
   def destroy
     @list.destroy
+    #need to destroy from list_users also
     respond_to do |format|
       format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
       format.json { head :no_content }

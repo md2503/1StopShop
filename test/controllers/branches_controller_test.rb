@@ -1,48 +1,49 @@
 require 'test_helper'
 
-class BranchesControllerTest < ActionDispatch::IntegrationTest
+class BranchesControllerTest < ActionController::TestCase
   setup do
     @branch = branches(:one)
   end
 
   test "should get index" do
-    get branches_url
+    get :index
     assert_response :success
+    assert_not_nil assigns(:branches)
   end
 
   test "should get new" do
-    get new_branch_url
+    get :new
     assert_response :success
   end
 
   test "should create branch" do
     assert_difference('Branch.count') do
-      post branches_url, params: { branch: { location: @branch.location, map: @branch.map, name: @branch.name } }
+      post :create, branch: { location: @branch.location, map: @branch.map, name: @branch.name }
     end
 
-    assert_redirected_to branch_url(Branch.last)
+    assert_redirected_to branch_path(assigns(:branch))
   end
 
   test "should show branch" do
-    get branch_url(@branch)
+    get :show, id: @branch
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_branch_url(@branch)
+    get :edit, id: @branch
     assert_response :success
   end
 
   test "should update branch" do
-    patch branch_url(@branch), params: { branch: { location: @branch.location, map: @branch.map, name: @branch.name } }
-    assert_redirected_to branch_url(@branch)
+    patch :update, id: @branch, branch: { location: @branch.location, map: @branch.map, name: @branch.name }
+    assert_redirected_to branch_path(assigns(:branch))
   end
 
   test "should destroy branch" do
     assert_difference('Branch.count', -1) do
-      delete branch_url(@branch)
+      delete :destroy, id: @branch
     end
 
-    assert_redirected_to branches_url
+    assert_redirected_to branches_path
   end
 end

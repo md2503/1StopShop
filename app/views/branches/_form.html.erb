@@ -1,3 +1,4 @@
+
 <%= form_with(model: branch, local: true) do |form| %>
   <% if branch.errors.any? %>
     <div id="error_explanation">
@@ -12,17 +13,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name %><br>
     <%= form.text_field :name, id: :branch_name %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
+    <%= form.label :location %><br>
     <%= form.text_field :location, id: :branch_location %>
   </div>
 
   <div class="field">
-    <%= form.label :map %>
+    <%= form.label :map %><br>
     <%= form.text_area :map, id: :branch_map %>
   </div>
 

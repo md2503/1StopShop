@@ -1,0 +1,12 @@
+<br>
+<h3 style="text-align:center;">Login to your account</h3>
+ <%= simple_form_for(:sessions) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs" style="padding-left: 400px; padding-right:400px; font: Helvetica;">
+      <%= f.input :email %>
+      <%= f.input :password %>
+</div>
+    <div class="form-actions" style="padding-left: 600px;">
+      <%= f.button :submit, "Login" %>
+    </div>
+<% end %>
