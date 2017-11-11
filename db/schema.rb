@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106082200) do
+ActiveRecord::Schema.define(version: 20171111120442) do
 
   create_table "branch_products", force: :cascade do |t|
     t.integer "branch_id"
@@ -97,10 +97,10 @@ ActiveRecord::Schema.define(version: 20171106082200) do
     t.string "firstname"
     t.string "lastname"
     t.string "email"
-    t.string "password"
     t.text "dietary_reqs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
