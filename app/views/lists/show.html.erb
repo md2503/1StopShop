@@ -1,20 +1,36 @@
+
 <p id="notice"><%= notice %></p>
 
 <h4 style="margin-left: 50px;">This is <%= @list.name %></h4>
 
 <p style="margin-left:50px;">Created on <%= @list.date %></p>
 
+<% @inList = [] %>
+<% ListProduct.all.each do |item| %>
+<% if item.list_id == @list.id %>
+<% @inList += [item] %>
+<% end %>
+<% end %>
+
 <p>
   <table style="margin-left: 55px;">
     <thead>
       <tr>
-        <th>Product ID</th>
-        <th>Quantity</th>
-        <th>Available?</th>
+        <th>Product Name  </th>
+        <th>Quantity  </th>
+        <th>Available? </th>
       </tr>
+      
     </thead>
+    
     <tbody>
-
+    <% @inList.each do |itemInList| %>
+      <tr>
+        <td><%= Product.find(itemInList.product_id).name %></td>
+        <td><%= itemInList.quantity %></td>
+        <td><%= itemInList.availability %></td>
+      </tr>
+      <% end %>
 
     </tbody>
     
@@ -25,7 +41,9 @@
 <div style="margin-left: 50px;"><%= link_to 'Add items', productpage_path %>
 </div>
 
-<p id="notice"><%= notice %></p>
+<div style="margin-left: 50px;"><%= link_to 'Share List', users_path %>
+</div>
+
 
 <h3 style="margin-left:50px;">Available Products</h3>
 
@@ -58,3 +76,39 @@
 
 <div style="margin-left:50px;"><%= link_to 'New Product', new_product_path %></div>
 
+<h3 style="margin-left:50px;">Users</h3>
+
+<table style="margin-left:50px;">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Dietary reqs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <div style="margin-left:50px;">
+  <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+  <%= submit_tag "Search" %>
+  <% end %>
+  </div>
+
+  <tbody>
+    <% User.all.each do |user| %>
+      <tr>
+        <td><%= user.firstname %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.dietary_reqs %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Share list with ' + user.firstname, share_list_path(:user_id =>user.id, :list_id => @list.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,4 +1,4 @@
-class CreateBranchProducts < ActiveRecord::Migration[5.1]
+class CreateBranchProducts < ActiveRecord::Migration[4.2]
   def change
     create_table :branch_products do |t|
       t.integer :branch_id
