@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
-
   resources :users
   resources :recipes
   resources :products
@@ -31,7 +29,7 @@ Rails.application.routes.draw do
   delete 'visitors/index' => 'sessions#destroy', as: :logout
   get 'users/new' => 'users#new', as: :signup
   get 'products/' => 'products#index', as: :productpage
-  get 'groceries/' => 'groceries#index', as: :grocerypage
+  get 'list_products/' => 'list_products#index', as: :grocerypage
   post 'users/new' => 'users#new'
   get 'lists/add_item' => 'lists#add_item', as: :addgrocery
   resources :add_to_list do 

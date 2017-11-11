@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -19,14 +18,6 @@ ActiveRecord::Schema.define(version: 20171106082200) do
     t.float "stock"
     t.integer "aisleno"
     t.integer "sectionno"
-ActiveRecord::Schema.define(version: 20171029184423) do
-
-  create_table "availabilities", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "branch_id"
-    t.float    "stock"
-    t.integer  "aisleno"
-    t.integer  "sectionno"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,9 +33,6 @@ ActiveRecord::Schema.define(version: 20171029184423) do
   create_table "list_product_product_recipes", force: :cascade do |t|
     t.integer "list_product_id"
     t.integer "product_recipe_id"
-  create_table "checklists", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,9 +42,6 @@ ActiveRecord::Schema.define(version: 20171029184423) do
     t.integer "product_id"
     t.float "quantity"
     t.boolean "availability"
-  create_table "custom_recipes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -89,34 +74,6 @@ ActiveRecord::Schema.define(version: 20171029184423) do
     t.string "category"
     t.float "price"
     t.string "brand"
-  create_table "groceries", force: :cascade do |t|
-    t.integer  "list_id"
-    t.integer  "product_id"
-    t.float    "quantity"
-    t.boolean  "availability"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "ingredients", force: :cascade do |t|
-    t.integer  "recipe_id"
-    t.integer  "product_id"
-    t.float    "amount"
-    t.string   "measurement"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "list_product_recipes", force: :cascade do |t|
-    t.integer  "grocery_id"
-    t.integer  "ingredient_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "lists", force: :cascade do |t|
-    t.string   "name"
-    t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -124,11 +81,6 @@ ActiveRecord::Schema.define(version: 20171029184423) do
   create_table "recipe_users", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "user_id"
-  create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.string   "category"
-    t.float    "price"
-    t.string   "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -149,10 +101,7 @@ ActiveRecord::Schema.define(version: 20171029184423) do
     t.text "dietary_reqs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
-
-
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
