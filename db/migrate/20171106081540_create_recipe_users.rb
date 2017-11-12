@@ -1,4 +1,4 @@
-class CreateRecipeUsers < ActiveRecord::Migration[5.1]
+class CreateRecipeUsers < ActiveRecord::Migration[4.2]
   def change
     create_table :recipe_users do |t|
       t.integer :recipe_id
