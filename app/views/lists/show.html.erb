@@ -29,6 +29,7 @@
         <td><%= Product.find(itemInList.product_id).name %></td>
         <td><%= itemInList.quantity %></td>
         <td><%= itemInList.availability %></td>
+        <td><%= link_to 'Remove item', remove_from_list_path(:product_id =>itemInList.product_id, :list_id => @list.id)%></td>
       </tr>
       <% end %>
 
@@ -38,11 +39,11 @@
   </table>
 
 </p>
-<div style="margin-left: 50px;"><%= link_to 'Add items', productpage_path %>
-</div>
+<!--<div style="margin-left: 50px;"><%= link_to 'Add items', productpage_path %>-->
+<!--</div>-->
 
-<div style="margin-left: 50px;"><%= link_to 'Share List', users_path %>
-</div>
+<!--<div style="margin-left: 50px;"><%= link_to 'Share List', users_path %>-->
+<!--</div>-->
 
 
 <h3 style="margin-left:50px;">Available Products</h3>

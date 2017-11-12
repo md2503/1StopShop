@@ -1,0 +1,2 @@
+module RemoveFromListHelper
+end
