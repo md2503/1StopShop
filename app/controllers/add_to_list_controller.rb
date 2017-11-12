@@ -6,7 +6,6 @@ class AddToListController < ApplicationController
     	redirect_to '/lists/'+params[:list_id], notice: 'Product was successfully added to your list'
     end
     
-    
 
     def add_to_list_params
     	params.require(:add_to_list).permit(:product_id, :list_id)
