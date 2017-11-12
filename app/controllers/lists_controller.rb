@@ -10,6 +10,12 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    @users = User.all
+    if params[:search]
+      @users = User.search(params[:search])
+    else
+      @users = User.all
+    end
   end
 
   # GET /lists/new
