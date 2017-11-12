@@ -18,23 +18,23 @@ ActiveRecord::Schema.define(version: 20171111120442) do
     t.float "stock"
     t.integer "aisleno"
     t.integer "sectionno"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "branches", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.text "map"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "list_product_product_recipes", force: :cascade do |t|
     t.integer "list_product_id"
     t.integer "product_recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "list_products", force: :cascade do |t|
@@ -42,22 +42,22 @@ ActiveRecord::Schema.define(version: 20171111120442) do
     t.integer "product_id"
     t.float "quantity"
     t.boolean "availability"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "list_users", force: :cascade do |t|
     t.integer "list_id"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.date "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "product_recipes", force: :cascade do |t|
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20171111120442) do
     t.integer "recipe_id"
     t.float "amount"
     t.string "measurement"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: :cascade do |t|
@@ -74,23 +74,23 @@ ActiveRecord::Schema.define(version: 20171111120442) do
     t.string "category"
     t.float "price"
     t.string "brand"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "recipe_users", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.text "dietaryreqs"
     t.integer "serving"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,8 +98,8 @@ ActiveRecord::Schema.define(version: 20171111120442) do
     t.string "lastname"
     t.string "email"
     t.text "dietary_reqs"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

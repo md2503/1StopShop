@@ -36,6 +36,10 @@ Rails.application.routes.draw do
     post '/add_to_list/:product_id/:list_id' => 'list#add_to_list' 
     get '/add_to_list/:product_id/:list_id' => 'list#add_to_list' 
   end
+  resources :share_list do 
+    post '/share_list/:user_id/:list_id' => 'share_list#show' 
+    get '/share_list/:user_id/:list_id' => 'share_list#show' 
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

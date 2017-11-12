@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_to_list]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_to_list, :share]
 
   # GET /lists
   # GET /lists.json
@@ -10,6 +10,12 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    @users = User.all
+    if params[:search]
+      @users = User.search(params[:search])
+    else
+      @users = User.all
+    end
   end
 
   # GET /lists/new
@@ -19,13 +25,6 @@ class ListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
-  end
-  
-  def add_item
-    $something = []
-    $something = add_to_list_path.split('/')
-    Grocery.create(product_id: $something[-1], list_id: @list.id, quantity:7, availability: 1)
-    redirect_to productpage_path
   end
 
   # POST /lists

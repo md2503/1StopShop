@@ -6,6 +6,10 @@ class User < ApplicationRecord
     has_many :recipe_users
     has_many :recipes, :through => :recipe_users
     
+    def self.search(search)
+      where("firstname LIKE ?", "%#{search}%")
+    end
+    
     
     validates :firstname, presence: true, length: { maximum: 50 }
     validates :lastname, presence: true
