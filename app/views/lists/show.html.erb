@@ -1,6 +1,6 @@
 <div class="buttons"style="float: left; width:50%;">
   <div class="container1" >
-    <h3 style="margin-left: 50px; padding-top:100px;"><%= @list.name %></h3>
+    <h3 style="margin-left: 50px; padding-top:15px;"><%= @list.name %></h3>
     <% @inList = [] %>
     <% ListProduct.all.each do |item| %>
     <% if item.list_id == @list.id %>
@@ -39,7 +39,7 @@
 </div>
 
 
-<div id="cont2" class="container2" style="float: left; width:50%; display:none;">
+<div id="cont2" class="container2" style="float: left; width:50%; display:none; overflow:scroll;">
   <h3 style="margin-left:50px; padding-top:100px;">Available Products</h3>
   
   <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
@@ -75,8 +75,8 @@
 </div>
 
 <div id="cont3" class="container3" style="width:100%; display:none;">
-  <h3 style="margin-left:50px; padding-top:100px;">Users</h3>
   <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
+      <h3 style="margin-left:50px; padding-top:100px;">Users</h3>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -102,6 +102,11 @@
     </table>
   </div>
 </div>
+
+</br>
+</br>
+</br>
+
 
 <script>
   $(function() {
