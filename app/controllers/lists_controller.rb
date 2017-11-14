@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     # @user = session[:user_id]
-    UserMailer.send_list().deliver
+    # UserMailer.send_list().deliver
 
   end
 
@@ -19,6 +19,8 @@ class ListsController < ApplicationController
     else
       @users = User.all
     end
+    UserMailer.send_list().deliver
+
   end
 
   # GET /lists/new
