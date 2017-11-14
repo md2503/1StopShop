@@ -1,5 +1,6 @@
 <% if logged_in? %>
 	<li class="nav-item"><%= link_to current_user.firstname, '/users/' + "#{session[:user_id]}", class: "nav-link js-scroll-trigger" %> </li>
+    <li class="nav-item"><%= link_to 'Recipes', '/recipes', class: "nav-link js-scroll-trigger"  %></li>
     <li class="nav-item"><%= link_to 'Shopping Lists', '/lists', class: "nav-link js-scroll-trigger"  %></li>
     <li class="nav-item"><%= link_to 'Update my info', '/users/' + "#{session[:user_id]}" + '/edit', class: "nav-link js-scroll-trigger" %></li>
     <li class="nav-item"><%= link_to 'Logout', logout_path, method: :delete, class: "nav-link js-scroll-trigger" %></li>
