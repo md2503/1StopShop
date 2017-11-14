@@ -5,8 +5,10 @@ class UserMailer < ActionMailer::Base
     mail(:to => @user.email, :subject => "Welcome to Prep 'n' Go")
   end
   
-  def send_list(list_product)
-    @list_product = list_product
-    mail(:to => 'info.prepngo@gmail.com', :subject => "Your shopping list")
+  def send_list()
+    # @user = user
+    attachments['test.txt'] = File.read('test.txt')
+    mail(:to => "info.prepngo@gmail.com", :subject => "Your shopping list")
   end
+
 end

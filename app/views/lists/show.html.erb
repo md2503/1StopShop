@@ -5,12 +5,22 @@
 
 <p style="margin-left:50px;">Created on <%= @list.date %></p>
 
+
 <% @inList = [] %>
 <% ListProduct.all.each do |item| %>
 <% if item.list_id == @list.id %>
 <% @inList += [item] %>
+<% File.open("test.txt", "w+") do |f| %>
+<% @inList.each do |name| %>
+<%  f.puts(Product.find(name.product_id).name) %>
+<% end %>
+
+<% end %>
+
 <% end %>
 <% end %>
+
+
 
 <p>
   <table style="margin-left: 55px;">
@@ -37,13 +47,12 @@
     
     
   </table>
-
 </p>
 <!--<div style="margin-left: 50px;"><%= link_to 'Add items', productpage_path %>-->
 <!--</div>-->
 
-<!--<div style="margin-left: 50px;"><%= link_to 'Share List', users_path %>-->
-<!--</div>-->
+<div style="margin-left: 50px;"><%= link_to 'Email List' %>
+</div>
 
 
 <h3 style="margin-left:50px;">Available Products</h3>

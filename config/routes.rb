@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   #root 'users#index'
   #root 'pages#home'
   root 'visitors#index'
+  get 'list/show' => 'lists#email'
   
   get 'sessions/new' => 'sessions#new', as: :login
   post 'sessions/new'=> 'sessions#create'
