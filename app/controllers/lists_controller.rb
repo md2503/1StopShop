@@ -5,6 +5,9 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = List.all
+    # @user = session[:user_id]
+    # UserMailer.send_list().deliver
+
   end
 
   # GET /lists/1
@@ -16,6 +19,8 @@ class ListsController < ApplicationController
     else
       @users = User.all
     end
+    UserMailer.send_list().deliver
+
   end
 
   # GET /lists/new
@@ -68,6 +73,10 @@ class ListsController < ApplicationController
       format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def email
+      UserMailer.send_list().deliver
   end
 
   private

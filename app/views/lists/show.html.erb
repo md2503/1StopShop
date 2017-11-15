@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 <div class="buttons"style="float: left; width:50%;">
   <div class="container1" >
     <h3 style="margin-left: 50px; padding-top:15px;"><%= @list.name %></h3>
     <% @inList = [] %>
-    <% ListProduct.all.each do |item| %>
-    <% if item.list_id == @list.id %>
-    <% @inList += [item] %>
-    <% end %>
-    <% end %>
+<% ListProduct.all.each do |item| %>
+<% if item.list_id == @list.id %>
+<% @inList += [item] %>
+<% File.open("test.txt", "w+") do |f| %>
+<% @inList.each do |name| %>
+<%  f.puts(Product.find(name.product_id).name) %>
+<% end %>
+
+<% end %>
+
+<% end %>
+<% end %>
     <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
       <table class="table table-striped">
         <thead>
@@ -35,7 +43,10 @@
             <%end%>
           </tr>
           <% end %>
-    
+
+
+
+
 
         </tbody>
         
