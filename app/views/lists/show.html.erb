@@ -14,16 +14,25 @@
             <th>Product Name  </th>
             <th>Quantity  </th>
             <th>Available? </th>
+            <th>Buyer?</th>
           </tr>
           
         </thead>
         
         <tbody>
+        <% @itemNumber = 0 %>
         <% @inList.each do |itemInList| %>
           <tr>
             <td><%= Product.find(itemInList.product_id).name %></td>
             <td><%= itemInList.quantity %></td>
             <td><%= itemInList.availability %></td>
+            <% if @itemNumber%2 == 0 %>
+              <td class="even">Karen</td>
+              <% @itemNumber += 1 %>
+            <% elsif @itemNumber%2 == 1 %>
+              <td class="odd">Karen</td>
+              <% @itemNumber += 1 %>
+            <%end%>
           </tr>
           <% end %>
     
@@ -36,13 +45,14 @@
   </div>
   <div id="items" style="margin-left: 50px;"><%= link_to 'Add items', productpage_path %></div>
   <div id="sharing" style="margin-left: 50px;"><%= link_to 'Share List', users_path %></div>
+  <div style="margin-left: 50px;"><button onclick="myFunction()">Split List</button></div>
 </div>
 
 
-<div id="cont2" class="container2" style="float: left; width:50%; display:none;">
-  <h3 style="margin-left:50px; padding-top:15px;">Available Products</h3>
+<div id="cont2" class="container2" style="float: left; width:50%; display:none; overflow:scroll;">
+  <h3 style="margin-left:50px; padding-top:100px;">Available Products</h3>
   
-  <div class="table-responsive" style="padding-left:50px; margin-top:35px; padding-bottom:30px;height:300px;overflow-y:auto;">
+  <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -76,7 +86,7 @@
 
 <div id="cont3" class="container3" style="width:100%; display:none;">
   <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
-      <h3 style="margin-left:50px; padding-top:50px;">Users</h3>
+      <h3 style="margin-left:50px; padding-top:100px;">Users</h3>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -103,6 +113,10 @@
   </div>
 </div>
 
+</br>
+</br>
+</br>
+
 
 <script>
   $(function() {
@@ -117,4 +131,13 @@
       $('div#cont3').toggle();
     });
   }); 
+</script>
+<script>
+function myFunction() {
+  var elements = document.getElementsByClassName("odd");
+  for(var i=0; i<elements.length; i++) {
+     document.getElementsByClassName('odd')[i].innerHTML = "Osama";
+  }
+   
+}
 </script>
