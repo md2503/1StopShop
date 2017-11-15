@@ -25,7 +25,7 @@ class ListProductsController < ApplicationController
   # POST /list_products.json
   def create
     @list_product = ListProduct.new(list_product_params)
-
+    UserMailer.send_list(@list_product).deliver
     respond_to do |format|
       if @list_product.save
         format.html { redirect_to @list_product, notice: 'List product was successfully created.' }
