@@ -1,34 +1,34 @@
-<p id="notice"><%= notice %></p>
 
-<h3 style="margin-left: 50px;">Shopping Lists</h3>
-
-<table style="margin-left: 55px; ">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% ListUser.all.each do |check| %>
-      <% if check.user_id == session[:user_id] %>
-      <% @l = List.find(check.list_id) %>
-
-
+<h3 style="margin-left: 50px; padding-top: 100px;">Shopping Lists</h3>
+<div class="table-responsive" style="padding-left:50px; width:80%; padding-top:30px;">
+  <table class="table table-striped" >
+    <thead>
       <tr>
-        <td><%= @l.name %></td>
-        <td><%= @l.date %></td>
-        <td><%= link_to 'Show', @l %></td>
-        <td><%= link_to 'Edit', edit_list_path(@l) %></td>
-        <td><%= link_to 'Destroy', @l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       
+        <th>Name</th>
+        <th>Date</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% ListUser.all.each do |check| %>
+        <% if check.user_id == session[:user_id] %>
+        <% @l = List.find(check.list_id) %>
+  
+  
+        <tr>
+          <td><%= @l.name %></td>
+          <td><%= @l.date %></td>
+          <td><%= link_to 'Show', @l %></td>
+          <td><%= link_to 'Edit', edit_list_path(@l) %></td>
+          <td><%= link_to 'Delete', @l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         
+        </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

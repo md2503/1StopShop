@@ -17,3 +17,40 @@
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+
+<p>Ingredients for this recipe:</p>
+<% @ingredients = [] %>
+<% ProductRecipe.all.each do |ingredient| %>
+<% if ingredient.recipe_id == @recipe.id %>
+<% @ingredients += [ingredient] %>
+<%end%>
+<%end%>
+<table style="margin-left:50px;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ingredients.each do |item| %>
+      <tr>
+        <td><%= Product.find_by(:id => item.product_id).name %></td>
+        <td><%= item.amount %></td>
+        <td>Pick a list: 
+        <select name="list_id">
+          <option value="1">List 1</option>
+          <option value="2">List 2</option>
+        </select> 
+          <%= link_to "Add to list", add_to_list_from_recipe_path(:product_id => item.product.id, :list_id => 1, :recipe_id => @recipe.id) %></td>
+        </tr>
+        <% end %>
+  </tbody>
+</table>
+
+
+
+
+
