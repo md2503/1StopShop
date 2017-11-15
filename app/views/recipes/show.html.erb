@@ -15,17 +15,17 @@
   <%= @recipe.serving %>
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
 
-<p>Ingredients for this recipe:</p>
-<% @ingredients = [] %>
-<% ProductRecipe.all.each do |ingredient| %>
-<% if ingredient.recipe_id == @recipe.id %>
-<% @ingredients += [ingredient] %>
-<%end%>
-<%end%>
-<table style="margin-left:50px;">
+
+<p><strong>Ingredients for this recipe:</strong></p>
+<div class="table-responsive" style="padding-left:50px; width:80%; padding-top:50px;">
+  <% @ingredients = [] %>
+  <% ProductRecipe.all.each do |ingredient| %>
+    <% if ingredient.recipe_id == @recipe.id %>
+      <% @ingredients += [ingredient] %>
+    <%end%>
+  <%end%>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -50,7 +50,8 @@
   </tbody>
 </table>
 
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
 
-
-
+</div>
 
