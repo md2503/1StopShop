@@ -1,10 +1,34 @@
 class BranchProductsController < ApplicationController
   before_action :set_branch_product, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
+  
   # GET /branch_products
   # GET /branch_products.json
   def index
     @branch_products = BranchProduct.all
+    # @geojson = Array.new
+    
+    # @branch_products.each do |branch_product|
+    #   @geojson << {
+    #     type: 'Feature',
+    #     geometry: {
+    #       type: 'Point',
+    #       coordinates: [branch_product.longitude, branch_product.latitude]
+    #     },
+    #     properties: {
+    #       name: branch_product.name,
+    #       address: branch_product.name,
+    #       :'marker-color' => '#FF0000',
+    #       :'marker-symbol' => 'circle',
+    #       :'marker-size' => 'medium'
+    #     }
+    #   }
+    # end
+    
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @geojson }  # respond with the created JSON object
+    # end
   end
 
   # GET /branch_products/1
@@ -69,6 +93,7 @@ class BranchProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_product_params
-      params.require(:branch_product).permit(:branch_id, :product_id, :stock, :aisleno, :sectionno)
+      params.require(:branch_product).permit(:branch_id, :product_id, :stock, :longitude, :latitude)
     end
 end
+

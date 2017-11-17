@@ -1,0 +1,15 @@
+{
+    "building": {
+        "floors": [
+            {
+                "floor_number": "0",
+                "pois": []
+            }
+        ],
+        "buid": "building_fda7e4ad-42e3-406a-8fb4-46948ba9424e_1510608135882",
+        "name": "Carrefour",
+        "description": "-",
+        "coordinates_lat": "25.258875348944418",
+        "coordinates_lon": "51.44258290529251"
+    }
+}

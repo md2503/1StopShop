@@ -1,0 +1,43 @@
+{
+    "building": {
+        "floors": [
+            {
+                "floor_number": "0",
+                "pois": [
+                    {
+                        "name": "Bread",
+                        "description": "-",
+                        "puid": "poi_18b05adf-dc5e-4ceb-8634-01650b2f2cb2",
+                        "pois_type": "Other",
+                        "coordinates_lat": "25.259162194782718",
+                        "coordinates_lon": "51.441641449928284",
+                        "overwrite": "false"
+                    },
+                    {
+                        "name": "Dairy",
+                        "description": "-",
+                        "puid": "poi_7951570f-fd74-4c7f-86e3-b571fb89c476",
+                        "pois_type": "Other",
+                        "coordinates_lat": "25.25935322281927",
+                        "coordinates_lon": "51.442140340805054",
+                        "overwrite": "false"
+                    },
+                    {
+                        "name": "Entry",
+                        "description": "-",
+                        "puid": "poi_fedc156e-e83d-44aa-a45a-836004819b7e",
+                        "pois_type": "Entrance",
+                        "coordinates_lat": "25.259033023273414",
+                        "coordinates_lon": "51.441483199596405",
+                        "overwrite": "false"
+                    }
+                ]
+            }
+        ],
+        "buid": "building_fa63307d-15b1-4dee-9071-2e88d3b0d928_1510554788641",
+        "name": "Carrefour",
+        "description": "-",
+        "coordinates_lat": "25.259028171758683",
+        "coordinates_lon": "51.44217252731323"
+    }
+}
