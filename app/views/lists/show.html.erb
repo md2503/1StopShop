@@ -1,7 +1,17 @@
 
+<% @listers = [] %>
+        <% ListUser.all.each do |record| %>
+          <% if record.list_id == @list.id %>
+            <% @listers += [User.find(record.user_id)] %>
+          <% end %>
+        <% end %>
 <div class="buttons"style="float: left; width:50%;">
   <div class="container1" >
     <h3 style="margin-left: 50px; padding-top:15px;"><%= @list.name %></h3>
+    <p style="margin-left: 50px; padding-top:15px;">People who can see this list</p>
+    <% @listers.each do |person| %> 
+      <p style="margin-left: 50px; padding-top:15px;"><%= person.firstname %></p>
+    <% end %>
     <% @inList = [] %>
 <% ListProduct.all.each do |item| %>
 <% if item.list_id == @list.id %>
@@ -146,12 +156,24 @@
     });
   }); 
 </script>
-<script>
-function myFunction() {
-  var elements = document.getElementsByClassName("odd");
-  for(var i=0; i<elements.length; i++) {
-     document.getElementsByClassName('odd')[i].innerHTML = "Osama";
+<% if @listers.length == 1 %>
+  <script>
+  function myFunction() {
+    var elements = document.getElementsByClassName("odd");
+    for(var i=0; i<elements.length; i++) {
+       document.getElementsByClassName('odd')[i].innerHTML = "<%= @listers[0].firstname %>";
+    }
+     
   }
-   
-}
-</script>
+  </script>
+<% else %>
+  <script>
+    function myFunction() {
+      var elements = document.getElementsByClassName("odd");
+      for(var i=0; i<elements.length; i++) {
+         document.getElementsByClassName('odd')[i].innerHTML = "<%= @listers[1].firstname %>";
+      }
+       
+    }
+  </script>
+<% end %>
