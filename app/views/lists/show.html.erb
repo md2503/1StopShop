@@ -23,6 +23,7 @@
             <th>Quantity  </th>
             <th>Available? </th>
             <th>Buyer?</th>
+            <th></th>
           </tr>
           
         </thead>
@@ -41,6 +42,7 @@
               <td class="odd">Karen</td>
               <% @itemNumber += 1 %>
             <%end%>
+            <td><%= link_to 'Remove item', remove_from_list_path(:product_id => itemInList.product_id, :list_id => itemInList.list_id) %></td>
           </tr>
           <% end %>
 
