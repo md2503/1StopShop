@@ -8,8 +8,8 @@
       <th>Branch</th>
       <th>Product</th>
       <th>Stock</th>
-      <th>longitude</th>
-      <th>latitude</th>
+      <th>y</th>
+      <th>x</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -40,11 +40,9 @@
 
 <% BranchProduct.all.each do |item| %>
   <circle id="circle" style="stroke: black; fill: #000000;" cx="<%= item.latitude %>" cy=" <%= item.longitude %>" r="5"/>
-  <text x="<%= item.latitude %>" y="<%= item.longitude %>" font-family="sans-serif" font-size="12px" fill="red"> <%= Product.find(item.product_id).name %></text>
+  <text x="<%= item.latitude+5 %>" y="<%= item.longitude %>" font-family="sans-serif" font-size="12px" fill="red"> <%= Product.find(item.product_id).name %></text>
 <% end %>
 
-
-<circle id="circle" style="stroke: black; fill: #000000;" cx="70" cy="25" r="5"/>
 </svg>
 </div>
 
