@@ -124,6 +124,8 @@ class BranchProductsController < ApplicationController
       end
     end
   end
+  
+
 
   # PATCH/PUT /branch_products/1
   # PATCH/PUT /branch_products/1.json
