@@ -44,7 +44,15 @@
           <tr>
             <td><%= Product.find(itemInList.product_id).name %></td>
             <td><%= itemInList.quantity %></td>
-            <td><%= itemInList.availability %></td>
+            <% if BranchProduct.find_by(:product_id => itemInList.product_id) != nil %>
+            <% if BranchProduct.find_by(:product_id => itemInList.product_id).stock >=1 %>
+              <td>Yes</td>
+            <% else %>
+              <td>No</td>
+            <% end %>
+            <% else %>
+              <td>No</td>
+            <% end %>
             <% if @itemNumber%2 == 0 %>
               <td class="even">Karen</td>
               <% @itemNumber += 1 %>
