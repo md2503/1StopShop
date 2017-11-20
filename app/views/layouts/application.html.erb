@@ -3,7 +3,10 @@
   <head>
     <title>Prep 'n' Go</title>
     <%= csrf_meta_tags %>
-    
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' /> 
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.css' rel='stylesheet' />
     <!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>-->
     <!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />-->
     <!--<script src="https://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js"></script>-->
@@ -31,15 +34,15 @@
   <body>
 
     <div class="mainContainer" style="width:100%; height:100%; position:absolute;">
-      <div class="header" style="width:100%; height:100px;">
+      <div class="head" style="width:100%; height:50px;">
         <%= render 'layouts/navigation' %>
       </div>
-      <div class="bod" style="width:100%; height:100%;">
+      <div class="bod" style="width:100%; height:100%; padding-bottom:50px;">
         <%= yield %>
       </div>
       <!-- Footer -->
-      <div class="footer" style="width:100%; height:100px;">
-        <footer>
+      <div class="foot" style="width:100%; position:absolute;">
+        <footer
         <div class="container">
           <div class="row">
             <div class="col-md-4">

@@ -1,21 +1,25 @@
-
-<div class="buttons"style="float: left; width:50%;">
-  <div class="container1" >
+<% @listers = [] %>
+<% ListUser.all.each do |record| %>
+  <% if record.list_id == @list.id %>
+    <% @listers += [User.find(record.user_id)] %>
+  <% end %>
+<% end %>
+<div class="container1" style="float: left; width:50%;">
     <h3 style="margin-left: 50px; padding-top:15px;"><%= @list.name %></h3>
+
     <% @inList = [] %>
-<% ListProduct.all.each do |item| %>
-<% if item.list_id == @list.id %>
-<% @inList += [item] %>
-<% File.open("test.txt", "w+") do |f| %>
-<% @inList.each do |name| %>
-<%  f.puts(Product.find(name.product_id).name) %>
-<% end %>
-
-<% end %>
-
-<% end %>
-<% end %>
+    <% ListProduct.all.each do |item| %>
+      <% if item.list_id == @list.id %>
+        <% @inList += [item] %>
+        <% File.open("test.txt", "w+") do |f| %>
+          <% @inList.each do |name| %>
+            <%  f.puts(Product.find(name.product_id).name) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
     <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
+      <div id="flow" style="overflow-y:auto; height:200px;">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -23,8 +27,8 @@
             <th>Quantity  </th>
             <th>Available? </th>
             <th>Buyer?</th>
+            <th></th>
           </tr>
-          
         </thead>
         
         <tbody>
@@ -33,72 +37,77 @@
           <tr>
             <td><%= Product.find(itemInList.product_id).name %></td>
             <td><%= itemInList.quantity %></td>
-            <td><%= itemInList.availability %></td>
+            <% if BranchProduct.find_by(:product_id => itemInList.product_id) != nil %>
+            <% if BranchProduct.find_by(:product_id => itemInList.product_id).stock >=1 %>
+              <td>Yes</td>
+            <% else %>
+              <td>No</td>
+            <% end %>
+            <% else %>
+              <td>No</td>
+            <% end %>
             <% if @itemNumber%2 == 0 %>
-              <td class="even">Karen</td>
+              <td class="even"><%= @listers[0].firstname %></td>
               <% @itemNumber += 1 %>
             <% elsif @itemNumber%2 == 1 %>
-              <td class="odd">Karen</td>
+              <td class="odd"><%= @listers[0].firstname %></td>
               <% @itemNumber += 1 %>
             <%end%>
+            <td><%= link_to 'Remove item', remove_from_list_path(:product_id => itemInList.product_id, :list_id => itemInList.list_id) %></td>
           </tr>
           <% end %>
-
-
-
-
-
         </tbody>
-        
-        
       </table>
+      </div>
+    </div>
+    <p style="margin-left: 50px;">People who can see this list:</p>
+    <% @listers.each do |person| %> 
+      <p style="margin-left: 50px; padding-top:15px;"><%= person.firstname %></p>
+    <% end %>
+    <div class="listButtons" style="padding-top:30px;">
+      <div id="items" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Add items', productpage_path %></div>
+      <div id="sharing" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Share List', users_path %></div>
+      <div style="margin-left: 50px; padding-bottom:10px; float:left;"><button onclick="myFunction()">Split List</button></div>
+      <div style="margin-left: 50px; float:left;"><button>Email List</button></div>
     </div>
   </div>
-  <div id="items" style="margin-left: 50px;"><%= link_to 'Add items', productpage_path %></div>
-  <div id="sharing" style="margin-left: 50px;"><%= link_to 'Share List', users_path %></div>
-  <div style="margin-left: 50px;"><button onclick="myFunction()">Split List</button></div>
-  <div style="margin-left: 50px;"><button>Email List</button></div>
-</div>
 
 
-<div id="cont2" class="container2" style="float: left; width:50%; display:none; overflow:scroll;">
-  <h3 style="margin-left:50px; padding-top:100px;">Available Products</h3>
-  
+<div id="cont2" class="container2" style="float: left; width:50%; display:none;">
+  <h3 style="margin-left:50px; padding-top:15px;">Available Products</h3>
   <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Brand</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-    <div id="flow" style="overflow-y:auto"
-      <tbody>
-        <% Product.all.each do |product| %>
+    <div id="flow" style="overflow-y:auto; height:200px;">
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <td><%= product.name %></td>
-            <td><%= product.category %></td>
-            <td><%= product.price %></td>
-            <td><%= product.brand %></td>
-            <td><%= link_to "Add to list", add_to_list_path(:product_id =>product.id, :list_id => @list.id) %></td>
-    
-
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th colspan="3"></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+          <tbody>
+            <% Product.all.each do |product| %>
+              <tr>
+                <td><%= product.name %></td>
+                <td><%= product.category %></td>
+                <td><%= product.price %></td>
+                <td><%= product.brand %></td>
+                <td><%= link_to "Add to list", add_to_list_path(:product_id =>product.id, :list_id => @list.id) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
   </div>  
-    <br>
-    
-    <div style="margin-left:50px;"><%= link_to 'New Product', new_product_path %></div>
+  <div style="margin-left:50px;"><%= button_to 'New Product', new_product_path %></div>
 </div>
 
-<div id="cont3" class="container3" style="width:100%; display:none;">
-  <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
-      <h3 style="margin-left:50px; padding-top:100px;">Users</h3>
+<div id="cont3" class="container3" style="float:left; width:100%; display:none;">
+  <div class="table-responsive" style="padding-left:50px; padding-right:50px;">
+    <h3 style="margin-left:50px; padding-top:50px;">Users</h3>
+    <div id="flow" style="overflow-y:auto; height:200px;">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -111,23 +120,20 @@
     
       <tbody>
         <% User.all.each do |user| %>
-        <% if user.id != session[:user_id] %>
-          <tr>
-            <td><%= user.firstname %></td>
-            <td><%= user.lastname %></td>
-            <td><%= user.email %></td>
-            <td><%= link_to 'Share list with ' + user.firstname, share_list_path(:user_id =>user.id, :list_id => @list.id) %></td>
-          </tr>
+          <% if user.id != session[:user_id] %>
+            <tr>
+              <td><%= user.firstname %></td>
+              <td><%= user.lastname %></td>
+              <td><%= user.email %></td>
+              <td><%= link_to 'Share list with ' + user.firstname, share_list_path(:user_id =>user.id, :list_id => @list.id) %></td>
+            </tr>
           <%end%>
         <% end %>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
-
-</br>
-</br>
-</br>
 
 
 <script>
@@ -144,12 +150,24 @@
     });
   }); 
 </script>
-<script>
-function myFunction() {
-  var elements = document.getElementsByClassName("odd");
-  for(var i=0; i<elements.length; i++) {
-     document.getElementsByClassName('odd')[i].innerHTML = "Osama";
+<% if @listers.length == 1 %>
+  <script>
+  function myFunction() {
+    var elements = document.getElementsByClassName("odd");
+    for(var i=0; i<elements.length; i++) {
+       document.getElementsByClassName('odd')[i].innerHTML = "<%= @listers[0].firstname %>";
+    }
+     
   }
-   
-}
-</script>
+  </script>
+<% else %>
+  <script>
+    function myFunction() {
+      var elements = document.getElementsByClassName("odd");
+      for(var i=0; i<elements.length; i++) {
+         document.getElementsByClassName('odd')[i].innerHTML = "<%= @listers[1].firstname %>";
+      }
+       
+    }
+  </script>
+<% end %>
