@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'products/' => 'products#index', as: :productpage
   get 'list_products/' => 'list_products#index', as: :grocerypage
   post 'users/new' => 'users#new'
+  post 'products/new' => 'products#new'
   get 'lists/add_item' => 'lists#add_item', as: :addgrocery
   resources :add_to_list do 
     post '/add_to_list/:product_id/:list_id' => 'list#add_to_list' 
