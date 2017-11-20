@@ -1,5 +1,6 @@
 class BranchProductsController < ApplicationController
   before_action :set_branch_product, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only
   skip_before_action :verify_authenticity_token
   
   # GET /branch_products
@@ -158,10 +159,12 @@ class BranchProductsController < ApplicationController
     def branch_product_params
       params.require(:branch_product).permit(:branch_id, :product_id, :stock)
     end
-
-    def branch_product_coordinates
-      params.require(:branch_product).permit(:longitude, :latitude)
-    end    
+    
+    def admin_only
+      if !current_user.admin?
+        redirect_to root_path
+      end
+    end
     
 end
 
