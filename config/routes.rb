@@ -56,6 +56,10 @@ Rails.application.routes.draw do
     post '/add_to_list/:product_id/:list_id' => 'list#add_to_list' 
     get '/add_to_list/:product_id/:list_id' => 'list#add_to_list'
   end
+  resources :add_to_recipe do 
+    post '/add_to_recipe/:product_id/:recipe_id' => 'add_to_recipe#show' 
+    get '/add_to_recipe/:product_id/:recipe_id' => 'add_to_recipe#show'
+  end
   resources :add_to_list_from_recipe do 
     post '/add_to_list_from_recipe/:product_id/:list_id/:recipe_id' => 'add_to_list_from_recipe#show' 
     get '/add_to_list_from_recipe/:product_id/:list_id/:recipe_id' => 'add_to_list_from_recipe#show' 

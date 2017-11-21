@@ -7,7 +7,7 @@ class AddToListController < ApplicationController
     	 else 
     	    @found.quantity += 1 
     	    @found.save
-    	    redirect_to '/lists/'+params[:list_id], notice: 'Product quantity was successfully updated to your list'
+    	    redirect_to '/lists/'+params[:list_id], notice: 'Product quantity was successfully updated in your list'
     	end
     end
     
