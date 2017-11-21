@@ -1,9 +1,9 @@
 
 ## users 
-User.create(firstname: "Karen", lastname: "Youssef", email: "kyoussef@qatar.cmu.edu", dietary_reqs: "None", password: "karen123", password_confirmation: "karen123", admin: 1)
-User.create(firstname: "Manisha", lastname: "Dareddy", email: "mdaredd1@qatar.cmu.edu", dietary_reqs: "None", password: "manisha123", password_confirmation: "manisha123", admin: 0)
-User.create(firstname: "Noor", lastname: "El-Sakka", email: "nelsakka@qatar.cmu.edu", dietary_reqs: "None", password: "noor123", password_confirmation: "noor123", admin: 0)
-User.create(firstname: "Osama", lastname: "Ali", email: "oali@qatar.cmu.edu", dietary_reqs: "None", password: "osama123", password_confirmation: "osama123", admin: 0)
+User.create(firstname: "Karen", lastname: "Youssef", email: "kyoussef@qatar.cmu.edu", dietary_reqs: "None", password: "karen123", password_confirmation: "karen123", admin: true)
+User.create(firstname: "Manisha", lastname: "Dareddy", email: "mdaredd1@qatar.cmu.edu", dietary_reqs: "None", password: "manisha123", password_confirmation: "manisha123", admin: false)
+User.create(firstname: "Noor", lastname: "El-Sakka", email: "nelsakka@qatar.cmu.edu", dietary_reqs: "None", password: "noor123", password_confirmation: "noor123", admin: false)
+User.create(firstname: "Osama", lastname: "Ali", email: "oali@qatar.cmu.edu", dietary_reqs: "None", password: "osama123", password_confirmation: "osama123", admin: false)
 ##-----------------------------------------------
 
 ## branches
