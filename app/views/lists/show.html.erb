@@ -1,3 +1,4 @@
+<html lang="en">
 <% @listers = [] %>
 <% ListUser.all.each do |record| %>
   <% if record.list_id == @list.id %>
@@ -173,3 +174,4 @@
     }
   </script>
 <% end %>
+</html>

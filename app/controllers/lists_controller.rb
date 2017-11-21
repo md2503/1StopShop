@@ -40,7 +40,7 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.save
         ListUser.create(:user_id => session[:user_id], :list_id => @list.id)
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
+        format.html { redirect_to @list, notice: 'List was successfully created.'}
         format.json { render :show, status: :created, location: @list }
         
       else
