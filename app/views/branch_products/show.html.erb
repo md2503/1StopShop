@@ -2,12 +2,12 @@
 
 <p>
   <strong>Branch:</strong>
-  <%= @branch_product.branch_id %>
+  <%= Branch.find(@branch_product.branch_id).name %>
 </p>
 
 <p>
   <strong>Product:</strong>
-  <%= @branch_product.product_id %>
+  <%= Product.find(@branch_product.product_id).name %>
 </p>
 
 <p>

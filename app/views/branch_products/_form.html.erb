@@ -13,27 +13,17 @@
 
   <div class="field">
     <%= form.label :branch_id %>
-    <%= form.number_field :branch_id, id: :branch_product_branch_id %>
+    <%= form.select :branch_id, options_from_collection_for_select(Branch.all, 'id', 'name')%>
   </div>
 
   <div class="field">
     <%= form.label :product_id %>
-    <%= form.number_field :product_id, id: :branch_product_product_id %>
+    <%= form.select :product_id, options_from_collection_for_select(Product.all, 'id', 'name')%>
   </div>
 
   <div class="field">
     <%= form.label :stock %>
     <%= form.text_field :stock, id: :branch_product_stock %>
-  </div>
-
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.number_field :longitude, id: :branch_product_longitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.number_field :latitude, id: :branch_product_latitude %>
   </div>
 
   <div class="actions">
