@@ -8,7 +8,8 @@
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <%= f.input :dietary_reqs %>
+    <%= f.label :dietary_reqs, "Dietary Preferences" %>
+    <%= f.select :dietary_reqs, [ "None", "Vegan", "Vegetarian", "Diabetic", "Gluten Free", "Nuts allergy", "Meat less", "Lactose free"] %>
   </div>
 
   <div class="actions" style="padding-left: 55px;">

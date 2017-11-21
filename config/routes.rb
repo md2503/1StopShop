@@ -21,6 +21,20 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'pages/home'
+  
+  
+  get 'noPreferance' => 'recipes#noPreferance'
+  
+  
+  get 'vegan' => 'recipes#vegan' 
+  get 'vegetarian' => 'recipes#vegetarian' 
+  get 'diabetic' => 'recipes#diabetic' 
+  get 'glutenFree' => 'recipes#glutenFree' 
+  get 'nutsAllergy' => 'recipes#nutsAllergy' 
+  get 'meatLess' => 'recipes#meatLess' 
+  get 'lactoseFree' => 'recipes#lactoseFree' 
+  
+  
 
   resources :sessions, only: [:new, :create, :destroy]
   #root 'users#index'
