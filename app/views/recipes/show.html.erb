@@ -42,8 +42,14 @@
         <td>Pick a list: 
           <select onChange="if(this.selectedIndex!=0) self.location=this.options[this.selectedIndex].value">
             <option value="click below">Click one:</option>
-            <% List.all.each do |listed| %>
-              <option value="<%= add_to_list_from_recipe_path(:product_id => item.product_id, :list_id => listed.id, :recipe_id => @recipe.id) %>"><%= listed.name %></option>
+            <% @myLists = [] %>
+            <% ListUser.all.each do |checklist| %>
+            <% if checklist.user_id == session[:user_id] %>
+            <% @myLists += [checklist] %>
+            <% end %>
+            <% end %>
+            <% @myLists.each do |listed| %>
+              <option value="<%= add_to_list_from_recipe_path(:product_id => item.product_id, :list_id => listed.list_id, :recipe_id => @recipe.id) %>"><%= List.find(listed.list_id).name %></option>
             <% end %>
           </select>
         </td>
