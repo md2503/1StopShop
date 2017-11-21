@@ -4,6 +4,7 @@
     <% @listers += [User.find(record.user_id)] %>
   <% end %>
 <% end %>
+
 <div class="container1" style="float: left; width:50%;">
     <h3 style="margin-left: 50px; padding-top:15px;"><%= @list.name %></h3>
 
@@ -19,7 +20,7 @@
       <% end %>
     <% end %>
     <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
-      <div id="flow" style="overflow-y:auto; height:200px;">
+      <div id="flow" style="overflow-y:auto; height:300px;">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -57,10 +58,10 @@
       <p style="margin-left: 50px; padding-top:15px;"><%= person.firstname %></p>
     <% end %>
     <div class="listButtons" style="padding-top:30px;">
-      <div id="items" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Add items', productpage_path %></div>
-      <div id="sharing" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Share List', users_path %></div>
-      <div style="margin-left: 50px; padding-bottom:10px; float:left;"><button onclick="myFunction()">Split List</button></div>
-      <div style="margin-left: 50px; float:left;"><button>Email List</button></div>
+      <div id="items" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Add items', productpage_path, class: 'btn btn-primary text-uppercase' %></div>
+      <div id="sharing" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Share List', users_path, class: 'btn btn-primary text-uppercase' %></div>
+      <div style="margin-left: 50px; padding-bottom:10px; float:left;"><button class='btn btn-primary text-uppercase' onclick="myFunction()">Split List</button></div>
+      <div style="margin-left: 50px; float:left;"><button class='btn btn-primary text-uppercase'>Email List</button></div>
     </div>
   </div>
 
@@ -68,7 +69,7 @@
 <div id="cont2" class="container2" style="float: left; width:50%; display:none;">
   <h3 style="margin-left:50px; padding-top:15px;">Available Products</h3>
   <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
-    <div id="flow" style="overflow-y:auto; height:200px;">
+    <div id="flow" style="overflow-y:auto; height:300px;">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -93,13 +94,14 @@
       </table>
     </div>
   </div>  
-  <div style="margin-left:50px;"><%= button_to 'New Product', new_product_path %></div>
+  <div style="margin-left:50px;"><%= button_to 'New Product', new_product_path, class: 'btn btn-primary text-uppercase' %></div>
 </div>
+
 
 <div id="cont3" class="container3" style="float:left; width:100%; display:none;">
   <div class="table-responsive" style="padding-left:50px; padding-right:50px;">
     <h3 style="margin-left:50px; padding-top:50px;">Users</h3>
-    <div id="flow" style="overflow-y:auto; height:200px;">
+    <div id="flow" style="overflow-y:auto; height:300px;">
     <table class="table table-striped">
       <thead>
         <tr>
