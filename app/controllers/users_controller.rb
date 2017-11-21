@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     # Tell the UserMailer to send a welcome Email after save
-    UserMailer.welcome_email(@user).deliver
+    #UserMailer.welcome_email(@user).deliver
   end
 
   # GET /users/1/edit
