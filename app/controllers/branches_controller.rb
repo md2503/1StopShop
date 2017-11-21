@@ -1,4 +1,5 @@
 class BranchesController < ApplicationController
+  before_action :admin_only
   before_action :set_branch, only: [:show, :edit, :update, :destroy]
 
   # GET /branches
@@ -70,5 +71,11 @@ class BranchesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
       params.require(:branch).permit(:name, :location, :map)
+    end
+    
+    def admin_only
+      if !current_user.admin?
+        redirect_to root_path
+      end
     end
 end

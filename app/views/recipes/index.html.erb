@@ -1,33 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div style="display:flex; flex-direction:column;">
+<div style="width;100%;">
+  <h3 style="margin-top:75px; margin-left:200px; margin-bottom:50px; position:absolute;">Recipes</h3>
+  <div align="center" ><%= button_to '+ New Recipe', new_recipe_path, class: 'btn btn-primary text-uppercase', style: 'background-color: #fed136; margin-top:75px; margin-bottom:50px;'%></div>
+</div>
 
-<h1>Listing Recipes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Dietaryreqs</th>
-      <th>Serving</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>ID</th>-->
+<!--      <th>Name</th>-->
+<!--      <th>Dietaryreqs</th>-->
+<!--      <th>Serving</th>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
 
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.id %></td>
-        <td><%= recipe.name %></td>
-        <td><%= recipe.dietaryreqs %></td>
-        <td><%= recipe.serving %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!--  <tbody>-->
+<!--    <% @recipes.each do |recipe| %>-->
+<!--      <tr>-->
+<!--        <td><%= recipe.id %></td>-->
+<!--        <td><%= recipe.name %></td>-->
+<!--        <td><%= recipe.dietaryreqs %></td>-->
+<!--        <td><%= recipe.serving %></td>-->
+<!--        <td><%= link_to 'Show', recipe %></td>-->
+<!--        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>-->
+<!--        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+<!--    <% end %>-->
+<!--  </tbody>-->
+<!--</table>-->
 
-<br>
+<!--<br>-->
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<% @recipes.each do |recipe| %>
+  <div class="post-container" style="margin: 20px 20px 20px 300px;">                
+      <div class="post-thumb" style="float:left;"><img src="<%= asset_path('food-picture.jpg') %>" style="display: block;" /></div>
+      <div class="post-content" style="margin-left: 250px; margin-top:7px;">
+          <h3 class="post-title" style="font-weight: bold; font-size: 150%"><%= recipe.name %></h3>
+          <p>Suitable for: <%= recipe.dietaryreqs %></p>
+          <p>Recommended for: <%= recipe.serving %> people.</p>
+          <p style="margin-top:30px;"><%= link_to 'Show', recipe, class: 'btn btn-primary text-uppercase', style: 'background-color: #fed136;' %></p></br>
+     </div>
+  </div>
+<% end %>
+</div>

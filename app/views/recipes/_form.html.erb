@@ -12,22 +12,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group" style="margin-left:100px;">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :recipe_name %>
+    <%= form.text_field :name, id: :recipe_name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :dietaryreqs %>
-    <%= form.text_area :dietaryreqs, id: :recipe_dietaryreqs %>
+  <div class="form-group" style="margin-left:100px;">
+    <%= form.label :dietaryreqs, "Suitable for" %>
+    <%= form.text_area :dietaryreqs, id: :recipe_dietaryreqs, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group" style="margin-left:100px;">
     <%= form.label :serving %>
-    <%= form.number_field :serving, id: :recipe_serving %>
+    <%= form.number_field :serving, id: :recipe_serving, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit :class => 'btn btn-primary text-uppercase', :style => 'margin-left:50px; margin-top:25px;'%>
   </div>
 <% end %>

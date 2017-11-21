@@ -19,7 +19,7 @@ class ListsController < ApplicationController
     else
       @users = User.all
     end
-    UserMailer.send_list().deliver
+    #UserMailer.send_list().deliver
 
   end
 

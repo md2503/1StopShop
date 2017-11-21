@@ -13,27 +13,17 @@
 
   <div class="field">
     <%= form.label :branch_id %>
-    <%= form.number_field :branch_id, id: :branch_product_branch_id %>
+    <%= form.select :branch_id, options_from_collection_for_select(Branch.all, 'id', 'name')%>
   </div>
 
   <div class="field">
     <%= form.label :product_id %>
-    <%= form.number_field :product_id, id: :branch_product_product_id %>
+    <%= form.select :product_id, options_from_collection_for_select(Product.all, 'id', 'name')%>
   </div>
 
   <div class="field">
     <%= form.label :stock %>
     <%= form.text_field :stock, id: :branch_product_stock %>
-  </div>
-
-  <div class="field">
-    <%= form.label :aisleno %>
-    <%= form.number_field :aisleno, id: :branch_product_aisleno %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sectionno %>
-    <%= form.number_field :sectionno, id: :branch_product_sectionno %>
   </div>
 
   <div class="actions">

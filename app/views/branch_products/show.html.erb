@@ -2,12 +2,12 @@
 
 <p>
   <strong>Branch:</strong>
-  <%= @branch_product.branch_id %>
+  <%= Branch.find(@branch_product.branch_id).name %>
 </p>
 
 <p>
   <strong>Product:</strong>
-  <%= @branch_product.product_id %>
+  <%= Product.find(@branch_product.product_id).name %>
 </p>
 
 <p>
@@ -16,14 +16,16 @@
 </p>
 
 <p>
-  <strong>Aisleno:</strong>
-  <%= @branch_product.aisleno %>
+  <strong>longitude:</strong>
+  <%= @branch_product.longitude %>
 </p>
 
 <p>
-  <strong>Sectionno:</strong>
-  <%= @branch_product.sectionno %>
+  <strong>latitude:</strong>
+  <%= @branch_product.latitude %>
 </p>
 
 <%= link_to 'Edit', edit_branch_product_path(@branch_product) %> |
 <%= link_to 'Back', branch_products_path %>
+
+

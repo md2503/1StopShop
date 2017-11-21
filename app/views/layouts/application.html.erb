@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html style="height:100%;">
   <head>
     <title>Prep 'n' Go</title>
     <%= csrf_meta_tags %>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' /> 
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.css' rel='stylesheet' />
+    <!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>-->
+    <!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />-->
+    <!--<script src="https://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js"></script>-->
+    <!--<link href="https://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css" rel="stylesheet" />-->
+    <!--<link href='https://api.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.css' rel='stylesheet' />-->
+
+
+    <!--custom css file added above for your application development-->
+    <!--<script src='https://api.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.js'></script>-->
+    
+    <!--<script type="text/javascript" src="https://raw.githubusercontent.com/jashkenas/coffeescript/master/lib/coffee-script/coffee-script.js"></script>-->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,56 +31,15 @@
 
   </head>
 
-  <body>
+  <body style="height:100%; display:flex; flex-direction:column;">
 
-    <div class="mainContainer" style="width:100%; height:100%; position:absolute;">
-      <div class="header" style="width:100%; height:100px;">
+      <div class="head" style="width:100%; height:50px;">
         <%= render 'layouts/navigation' %>
       </div>
-      <div class="bod" style="width:100%; height:100%;">
+      <div class="bod" style="flex: 1 0 auto;">
         <%= yield %>
       </div>
       <!-- Footer -->
-      <div class="footer" style="width:100%; height:100px;">
-        <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <span class="copyright">Copyright &copy; Team 1</span>
-            </div>
-            <div class="col-md-4">
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <ul class="list-inline quicklinks">
-                <li class="list-inline-item">
-                  <a href="#">Privacy Policy</a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">Terms of Use</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-      </div>
-    </div>
+      <%= render 'layouts/footer' %>
   </body>
 </html>
