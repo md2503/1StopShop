@@ -31,6 +31,19 @@
 </table>
 <br>
 
+<style>
+  #circle {
+	  visibility: visible;
+  }
+
+  #circle:hover + #label{
+  	visibility: visible;
+  }
+
+  #label {
+  	visibility: hidden;
+  }
+</style>
 
 
 <div>
@@ -41,7 +54,7 @@
 <% BranchProduct.all.each do |item| %>
 <% if item.longitude != nil && item.latitude != nil%>
   <circle id="circle" style="stroke: black; fill: #000000;" cx="<%= item.latitude %>" cy=" <%= item.longitude %>" r="5"/>
-  <text x="<%= item.latitude-10 %>" y="<%= item.longitude+15 %>" font-family="sans-serif" font-size="12px" fill="Black"> <%= Product.find(item.product_id).name %></text>
+  <text id="label" x="<%= item.latitude-10 %>" y="<%= item.longitude+15 %>" font-family="sans-serif" font-size="12px" fill="Black"> <%= Product.find(item.product_id).name %></text>
 <% end %>
 <% end %>
 

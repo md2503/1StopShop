@@ -174,6 +174,19 @@
   </script>
 <% end %>
 
+<style>
+  #circle {
+	  visibility: visible;
+  }
+
+  #circle:hover + #label{
+  	visibility: visible;
+  }
+
+  #label {
+  	visibility: hidden;
+  }
+</style>
 
 <div>
 <svg viewBox="0 0 539 388" width="539" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns="http://www.w3.org/2000/svg" height="388"><style type="text/css"><![CDATA[
@@ -185,12 +198,15 @@
 <% @myProducts += [listedProduct] %>
 <% end %> 
 <% end %>
+
 <% @myProducts.each do |item| %>
 <% if BranchProduct.find_by(:product_id => item.product_id).longitude != nil && BranchProduct.find_by(:product_id => item.product_id).latitude != nil%>
   <circle id="circle" style="stroke: black; fill: #000000;" cx="<%= BranchProduct.find_by(:product_id => item.product_id).latitude %>" cy=" <%= BranchProduct.find_by(:product_id => item.product_id).longitude %>" r="5"/>
-  <text x="<%= BranchProduct.find_by(:product_id => item.product_id).latitude-10 %>" y="<%= BranchProduct.find_by(:product_id => item.product_id).longitude+15 %>" font-family="sans-serif" font-size="12px" fill="Black"> <%= Product.find(item.product_id).name %></text>
+  
+  <text id="label" x="<%= BranchProduct.find_by(:product_id => item.product_id).latitude-10 %>" y="<%= BranchProduct.find_by(:product_id => item.product_id).longitude+15 %>" font-family="sans-serif" font-size="12px" fill="Black" visibility= "hidden"> <%= Product.find(item.product_id).name %></text>
 <% end %>
 <% end %>
 
 </svg>
 </div>
+
