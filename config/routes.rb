@@ -40,6 +40,10 @@ Rails.application.routes.draw do
   #root 'users#index'
   #root 'pages#home'
   root 'visitors#index'
+  
+  resources :users do
+    get :make_admin, on: :member
+  end
   get 'list/show' => 'lists#email'
   
   get 'sessions/new' => 'sessions#new', as: :login
