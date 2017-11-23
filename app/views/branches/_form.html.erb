@@ -12,22 +12,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %><br>
-    <%= form.text_field :name, id: :branch_name %>
+  <div class="form-group">
+    <%= form.label :name, "Branch Name" %><br>
+    <%= form.text_field :name, id: :branch_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :location %><br>
-    <%= form.text_field :location, id: :branch_location %>
+    <%= form.text_field :location, id: :branch_location, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :map %><br>
-    <%= form.text_area :map, id: :branch_map %>
+    <%= form.text_area :map, id: :branch_map, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit :class => 'btn btn-primary text-uppercase' %>
   </div>
 <% end %>

@@ -12,27 +12,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :product_name %>
+  <div class="form-group">
+    <%= form.label :name, "Product Name" %>
+    <%= form.text_field :name, id: :product_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :category %>
-    <%= form.select :category, [ "Dairy", "Eggs", "Newspaper", "Magazines", "Fruits", "Vegetables", "Tea/Coffee", "Bakery", "Cereal", "Frozens", "Baby food", "Canned food", "Snacks", "Biscuits", "Pet food" ] %>
+    <%= form.select :category, [ "Dairy", "Eggs", "Newspaper", "Magazines", "Fruits", "Vegetables", "Tea/Coffee", "Bakery", "Cereal", "Frozens", "Baby food", "Canned food", "Snacks", "Biscuits", "Pet food" ], class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.text_field :price, id: :product_price %>
+    <%= form.text_field :price, id: :product_price, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :brand %>
-    <%= form.text_field :brand, id: :product_brand %>
+    <%= form.text_field :brand, id: :product_brand, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit :class => 'btn btn-primary text-uppercase' %>
   </div>
 <% end %>

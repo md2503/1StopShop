@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :list_id %>
-    <%= form.number_field :list_id, id: :list_user_list_id %>
+    <%= form.number_field :list_id, id: :list_user_list_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :list_user_user_id %>
+    <%= form.number_field :user_id, id: :list_user_user_id, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit :class => 'btn btn-primary text-uppercase'%>
   </div>
 <% end %>

@@ -12,15 +12,11 @@
     </div>
   <% end %>
 
-  <div class="field" style="padding-left: 55px; padding-right:800px; font: Helvetica; ">
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
+  <div class="form-group" style="padding-left: 55px; padding-right:800px;">
+    <%= form.label :name, "List Name" %><br>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
-  <div class="field" style="padding-left: 55px; padding-right:800px; font: Helvetica; ">
-    <%= form.label :date %><br>
-    <%= form.date_select :date %>
-  </div>
-  <div class="actions" style="padding-left: 55px; ">
-    <%= form.submit %>
+  <div class="form-actions" style="padding-left: 55px; ">
+    <%= form.submit :class => 'btn btn-primary text-uppercase' %>
   </div>
 <% end %>
