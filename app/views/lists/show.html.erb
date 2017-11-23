@@ -70,7 +70,7 @@
       <div id="items" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Add items', productpage_path, class: 'btn btn-primary text-uppercase' %></div>
       <div id="sharing" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Share List', users_path, class: 'btn btn-primary text-uppercase' %></div>
       <div style="margin-left: 50px; padding-bottom:10px; float:left;"><button class='btn btn-primary text-uppercase' onclick="myFunction()">Split List</button></div>
-      <div style="margin-left: 50px; float:left;"><button class='btn btn-primary text-uppercase'>Email List</button></div>
+      <div style="margin-left: 50px; float:left;"> <%= link_to 'Email list', email_list_path %></div>
     </div>
   </div>
 

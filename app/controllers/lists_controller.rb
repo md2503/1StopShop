@@ -19,7 +19,7 @@ class ListsController < ApplicationController
     else
       @users = User.all
     end
-    #UserMailer.send_list().deliver
+    # UserMailer.send_list(user).deliver
 
   end
 
@@ -75,8 +75,10 @@ class ListsController < ApplicationController
     end
   end
   
-  def email
-      UserMailer.send_list().deliver
+  def send_email
+      # UserMailer.send_list(List.find(ListUser.find_by(:user_id => session[:user_id]).list_id)).deliver
+      #UserMailer.send_list()
+      redirect_to lists_url
   end
 
   private
@@ -87,6 +89,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :date)
+      params.require(:list).permit(:name, :date, :tart)
     end
 end
