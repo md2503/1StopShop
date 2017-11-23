@@ -21,12 +21,31 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'pages/home'
+  
+  
+  get 'noPreferance' => 'recipes#noPreferance'
+  
+  
+  get 'vegan' => 'recipes#vegan' 
+  get 'vegetarian' => 'recipes#vegetarian' 
+  get 'diabetic' => 'recipes#diabetic' 
+  get 'glutenFree' => 'recipes#glutenFree' 
+  get 'nutsAllergy' => 'recipes#nutsAllergy' 
+  get 'meatLess' => 'recipes#meatLess' 
+  get 'lactoseFree' => 'recipes#lactoseFree' 
+  
+  
 
   resources :sessions, only: [:new, :create, :destroy]
   #root 'users#index'
   #root 'pages#home'
   root 'visitors#index'
   get 'list/show' => 'lists#send_email', as: :email_list
+  
+  resources :users do
+    get :make_admin, on: :member
+  end
+  get 'list/show' => 'lists#email'
   
   get 'sessions/new' => 'sessions#new', as: :login
   post 'sessions/new'=> 'sessions#create'
@@ -46,6 +65,10 @@ Rails.application.routes.draw do
     post '/send_list/:user_id' => 'send_list#show' 
     get '/send_list/:user_id' => 'send_list#show'
   end
+  resources :add_to_recipe do 
+    post '/add_to_recipe/:product_id/:recipe_id' => 'add_to_recipe#show' 
+    get '/add_to_recipe/:product_id/:recipe_id' => 'add_to_recipe#show'
+  end
   resources :add_to_list_from_recipe do 
     post '/add_to_list_from_recipe/:product_id/:list_id/:recipe_id' => 'add_to_list_from_recipe#show' 
     get '/add_to_list_from_recipe/:product_id/:list_id/:recipe_id' => 'add_to_list_from_recipe#show' 
@@ -57,7 +80,7 @@ Rails.application.routes.draw do
   
   resources :remove_from_list do 
     post '/remove_from_list/:product_id/:list_id' => 'remove_from_list#show' 
-    get '/share_list/:product_id/:list_id' => 'remove_from_list#show' 
+    get '/remove_from_list/:product_id/:list_id' => 'remove_from_list#show' 
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

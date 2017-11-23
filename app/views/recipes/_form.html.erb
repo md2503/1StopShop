@@ -18,7 +18,7 @@
 
   <div class="form-group" style="margin-left:100px;">
     <%= form.label :dietaryreqs, "Suitable for" %>
-    <%= form.text_area :dietaryreqs, id: :recipe_dietaryreqs, class: "form-control" %>
+    <%= form.select :dietaryreqs, [ "None", "Vegan", "Vegetarian", "Diabetic", "Gluten Free", "Nuts allergy", "Meat less", "Lactose free"], class: "form-control" %>
   </div>
 
   <div class="form-group" style="margin-left:100px;">

@@ -61,6 +61,39 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def noPreferance
+    @recipes = Recipe.all
+  end
+  
+  
+  def vegan
+    @recipes = Recipe.vegan
+  end
+    
+  def vegetarian
+    @recipes = Recipe.vegetarian
+  end
+  
+  def diabetic
+    @recipes = Recipe.diabetic
+  end
+  
+  def glutenFree
+    @recipes = Recipe.glutenFree
+  end
+  
+  def nutsAllergy
+    @recipes = Recipe.nutsAllergy
+  end
+  
+  def meatLess
+    @recipes = Recipe.meatLess
+  end
+  
+  def lactoseFree
+    @recipes = Recipe.lactoseFree
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
