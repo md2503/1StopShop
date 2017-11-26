@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   post 'users/new' => 'users#new'
   post 'products/new' => 'products#new'
   post 'recipes/new' => 'recipes#new'
+  post 'lists/new' => 'lists#new'
   get 'lists/add_item' => 'lists#add_item', as: :addgrocery
   resources :add_to_list do 
     post '/add_to_list/:product_id/:list_id' => 'list#add_to_list' 

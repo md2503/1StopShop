@@ -1,11 +1,11 @@
-
-<h3 style="margin-left: 50px; padding-top: 100px;">Shopping Lists</h3>
-<div class="table-responsive" style="padding-left:50px; width:80%; padding-top:30px;">
-  <table class="table table-striped" >
-    <thead>
+<div style="margin-top: 20px; margin: auto;">
+<h3 style="text-align: center; padding-top: 100px;">Your Shopping Lists</h3>
+<div class="table-responsive" style="margin: auto; width:80%; padding-top:30px;">
+  <table style="border: 3px solid black; border-radius: 1.5em;" class="table table-striped" >
+    <thead style="background: #5F808D; color: white;">
       <tr>
-        <th>Name</th>
-        <th>Date</th>
+        <th>List Name</th>
+        <th>Date Created</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -14,13 +14,11 @@
       <% ListUser.all.each do |check| %>
         <% if check.user_id == session[:user_id] %>
         <% @l = List.find(check.list_id) %>
-  
-  
         <tr>
           <td><%= @l.name %></td>
           <td><%= @l.created_at.to_date %></td>
           <td><%= link_to 'Show', @l %></td>
-          <td><%= link_to 'Edit', edit_list_path(@l) %></td>
+          <td><%= link_to 'Rename', edit_list_path(@l) %></td>
           <td><%= link_to 'Delete', @l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
          
         </tr>
@@ -32,4 +30,12 @@
 
 <br>
 
-<div style="margin-left: 55px;"><%= link_to 'Add a List', new_list_path %></div>
+<div><%= button_to 'Add a List', new_list_path, class: 'btn btn-primary text-uppercase', style: 'margin: auto; margin-left: 165px; width: 80%;' %></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
