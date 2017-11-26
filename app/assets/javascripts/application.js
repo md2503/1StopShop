@@ -12,7 +12,7 @@
 //
 //= require_mapbox.js
 //= require rails-ujs
-//= require jquery
+//= require jquery.js
 //= require bootstrap-sprockets
 //= require jquery.easing.js
 //= require bootstrap.bundle.js

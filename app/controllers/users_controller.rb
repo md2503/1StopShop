@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :admin_only, only: [:edit, :update, :destroy]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :make_admin]
   skip_before_action :authenticate, only: [:new, :create]
+  before_action :admin_only, only: [:edit, :update, :destroy, :make_admin]
 
   # GET /users
   # GET /users.json
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         # Tell the UserMailer to send a welcome Email after save
-        UserMailer.welcome_email(@user).deliver
+        # UserMailer.welcome_email(@user).deliver
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
 
@@ -71,6 +71,16 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def make_admin
+    @user.toggle!(:admin)
+    if @user.save
+      redirect_to users_path, notice: 'User was successfully updated.'
+    else
+      flash[:alert]= 'Error updating user'
+      redirect_to users_path
+    end 
   end
 
   private

@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :list_product_id %>
-    <%= form.number_field :list_product_id, id: :list_product_product_recipe_list_product_id %>
+    <%= form.number_field :list_product_id, id: :list_product_product_recipe_list_product_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :product_recipe_id %>
-    <%= form.number_field :product_recipe_id, id: :list_product_product_recipe_product_recipe_id %>
+    <%= form.number_field :product_recipe_id, id: :list_product_product_recipe_product_recipe_id, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit :class => 'btn btn-primary text-uppercase' %>
   </div>
 <% end %>

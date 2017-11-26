@@ -2,17 +2,17 @@
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-group" style="padding-left: 55px; padding-right:800px; font: Helvetica; ">
-    <%= f.input :firstname %>
-    <%= f.input :lastname %>
-    <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
-    <%= f.label :dietary_reqs, "Dietary Preferences" %>
-    <%= f.select :dietary_reqs, [ "None", "Vegan", "Vegetarian", "Diabetic", "Gluten Free", "Nuts allergy", "Meat less", "Lactose free"] %>
+  <div class="form-group" style="padding-left: 55px; padding-right:800px; ">
+    <%= f.input :firstname, class: "form-control" %>
+    <%= f.input :lastname, class: "form-control" %>
+    <%= f.input :email, class: "form-control" %>
+    <%= f.input :password, class: "form-control" %>
+    <%= f.input :password_confirmation, class: "form-control" %>
+    <%= f.label :dietary_reqs, "Dietary Preferences", class: "form-control" %>
+    <%= f.select :dietary_reqs, [ "None", "Vegan", "Vegetarian", "Diabetic", "Gluten Free", "Nuts allergy", "Meat less", "Lactose free"], class: "form-control" %>
   </div>
 
-  <div class="actions" style="padding-left: 55px;">
-    <%= f.button :submit %>
+  <div class="form-actions" style="padding-left: 55px;">
+    <%= f.button :submit, class: 'btn btn-primary text-uppercase' %>
   </div>
 <% end %>

@@ -12,13 +12,13 @@
     @include heading-font;
   }
   .navbar-brand {
-    color: $primary;
-    @include script-font;
+    color: #fed136;
+    font-family: 'Coustard', serif;
     &.active,
     &:active,
     &:focus,
     &:hover {
-      color: darken($primary, 10%);
+      color: darken(#fed136, 10%);
     }
   }
   .navbar-nav {
@@ -32,7 +32,7 @@
         @include heading-font;
         &.active,
         &:hover {
-          color: $primary;
+          color: #fed136;
         }
       }
     }
