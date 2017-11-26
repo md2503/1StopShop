@@ -67,6 +67,7 @@ class ListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
+    ListUser.find_by(:list_id => @list.id).destroy
     @list.destroy
     #need to destroy from list_users also
     respond_to do |format|
