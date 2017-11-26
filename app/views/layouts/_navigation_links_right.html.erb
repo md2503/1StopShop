@@ -8,7 +8,6 @@
     <li class="nav-item"><%= link_to 'Branches', '/branches', class: "nav-link js-scroll-trigger"  %></li>
     <li class="nav-item"><%= link_to 'Stock', '/branch_products', class: "nav-link js-scroll-trigger"  %></li>
     <% end %>
-    <li class="nav-item"><%= link_to 'Update my info', '/users/' + "#{session[:user_id]}" + '/edit', class: "nav-link js-scroll-trigger" %></li>
     <li class="nav-item"><%= link_to 'Logout', logout_path, method: :delete, class: "nav-link js-scroll-trigger" %></li>
 <% else %>
     <li class="nav-item"><%= link_to 'Login', login_path, class: "nav-link js-scroll-trigger" %></li>

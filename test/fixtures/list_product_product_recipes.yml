@@ -1,9 +1,1 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  list_product_id: 1
-  product_recipe_id: 1
-
-two:
-  list_product_id: 1
-  product_recipe_id: 1

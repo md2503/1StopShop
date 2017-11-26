@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="container1" style="float: left; width:50%;">
-    <h3 style="margin-left: 50px; padding-top:15px;"><%= @list.name %></h3>
+    <h3 style="margin-left: 50px; padding-top:100px;"><%= @list.name %></h3>
 
     <% @inList = [] %>
     <% ListProduct.all.each do |item| %>
@@ -61,15 +61,15 @@
       <p style="margin-left: 50px; padding-top:15px;"><%= person.firstname %></p>
     <% end %>
     <div class="listButtons" style="padding-top:30px;">
-      <div id="items" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Add items', productpage_path, class: 'btn btn-primary text-uppercase' %></div>
+      <!--<div id="items" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Add items', productpage_path, class: 'btn btn-primary text-uppercase' %></div>-->
       <div id="sharing" style="margin-left: 50px; padding-bottom:10px; float:left;"><%= button_to 'Share List', users_path, class: 'btn btn-primary text-uppercase' %></div>
       <div style="margin-left: 50px; padding-bottom:10px; float:left;"><button class='btn btn-primary text-uppercase' onclick="myFunction()">Split List</button></div>
-      <div style="margin-left: 50px; float:left;"><button class='btn btn-primary text-uppercase'>Email List</button></div>
+      <div style="margin-left: 50px; float:left;"> <%= button_to 'Email list', email_list_path, class: 'btn btn-primary text-uppercase' %></div>
     </div>
   </div>
 
 
-<div id="cont2" class="container2" style="float: left; width:50%; display:none;">
+<div id="cont2" class="container2" style="float: left; width:50%;">
   <h3 style="margin-left:50px; padding-top:15px;">Available Products</h3>
   <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
     <div id="flow" style="overflow-y:auto; height:300px;">
@@ -135,17 +135,11 @@
 
 <script>
   $(function() {
-    $('#items').click(function(event){
-      event.preventDefault();
-      $('div#cont2').toggle();
-    });
-  }); 
-  $(function() {
     $('#sharing').click(function(event){
       event.preventDefault();
       $('div#cont3').toggle();
     });
-  }); 
+  });
 </script>
 <% if @listers.length == 1 %>
   <script>
@@ -182,7 +176,6 @@
   /*	visibility: hidden;*/
   /*}*/
 </style>
-
 
 <% @myProducts = [] %>
 <% ListProduct.all.each do |listedProduct| %>
@@ -250,11 +243,14 @@
 <% end %> 
 <% end %>
 <% @myPoints1 = [] %>
+
+<% if @myProducts != nil %>
 <% @myProducts.each do |item| %>
 <% if BranchProduct.find_by(:product_id => item.product_id).longitude != nil && BranchProduct.find_by(:product_id => item.product_id).latitude != nil%>
   <circle id="circle" style="stroke: black; fill: #000000;" cx="<%= BranchProduct.find_by(:product_id => item.product_id).latitude %>" cy=" <%= BranchProduct.find_by(:product_id => item.product_id).longitude %>" r="5"/>
   <% @myPoints1 += [[BranchProduct.find_by(:product_id => item.product_id).latitude, BranchProduct.find_by(:product_id => item.product_id).longitude]] %>
   <text id="label" x="<%= BranchProduct.find_by(:product_id => item.product_id).latitude-10 %>" y="<%= BranchProduct.find_by(:product_id => item.product_id).longitude+15 %>" font-family="sans-serif" font-size="12px" fill="Black"> <%= Product.find(item.product_id).name %></text>
+<% end %>
 <% end %>
 <% end %>
 
@@ -266,6 +262,7 @@
 <% end %> 
 
 </svg>
+
 
 
 
@@ -320,3 +317,5 @@ function capture() {
         }
     });
 }</script>
+
+

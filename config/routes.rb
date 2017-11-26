@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   #root 'users#index'
   #root 'pages#home'
   root 'visitors#index'
+  get 'list/show' => 'lists#send_email', as: :email_list
   
   resources :users do
     get :make_admin, on: :member
@@ -55,10 +56,15 @@ Rails.application.routes.draw do
   post 'users/new' => 'users#new'
   post 'products/new' => 'products#new'
   post 'recipes/new' => 'recipes#new'
+  post 'lists/new' => 'lists#new'
   get 'lists/add_item' => 'lists#add_item', as: :addgrocery
   resources :add_to_list do 
     post '/add_to_list/:product_id/:list_id' => 'list#add_to_list' 
     get '/add_to_list/:product_id/:list_id' => 'list#add_to_list'
+  end
+  resources :send_list do 
+    post '/send_list/:user_id' => 'send_list#show' 
+    get '/send_list/:user_id' => 'send_list#show'
   end
   resources :add_to_recipe do 
     post '/add_to_recipe/:product_id/:recipe_id' => 'add_to_recipe#show' 
@@ -75,7 +81,7 @@ Rails.application.routes.draw do
   
   resources :remove_from_list do 
     post '/remove_from_list/:product_id/:list_id' => 'remove_from_list#show' 
-    get '/share_list/:product_id/:list_id' => 'remove_from_list#show' 
+    get '/remove_from_list/:product_id/:list_id' => 'remove_from_list#show' 
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

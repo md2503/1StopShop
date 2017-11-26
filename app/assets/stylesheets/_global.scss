@@ -2,6 +2,7 @@
 body {
   overflow-x: hidden;
   @include body-font;
+  background: #ffffff;
 }
 
 p {
@@ -68,9 +69,9 @@ section {
   &:active,
   &:focus,
   &:hover {
-    background-color: darken($primary, 7.5%) !important;
-    border-color: darken($primary, 7.5%) !important;
-    color: white;
+    background-color: #fed136 !important;
+    border-color: #fed136 !important;
+    color: black;
   }
   &:active,
   &:focus {
@@ -99,4 +100,9 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: $primary;
+}
+
+#newlist{
+  width: 80%;
+  
 }
