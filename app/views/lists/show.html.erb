@@ -1,3 +1,16 @@
+<style>
+  #circle {
+	  visibility: visible;
+  }
+
+  #circle:hover + #label{
+  	visibility: visible;
+  }
+
+  #label {
+  	visibility: hidden;
+  }
+</style>
 <% @listers = [] %>
 <% ListUser.all.each do |record| %>
   <% if record.list_id == @list.id %>
@@ -247,17 +260,17 @@
 <% if @myProducts != nil %>
 <% @myProducts.each do |item| %>
 <% if BranchProduct.find_by(:product_id => item.product_id).longitude != nil && BranchProduct.find_by(:product_id => item.product_id).latitude != nil%>
-  <circle id="circle" style="stroke: black; fill: #000000;" cx="<%= BranchProduct.find_by(:product_id => item.product_id).latitude %>" cy=" <%= BranchProduct.find_by(:product_id => item.product_id).longitude %>" r="5"/>
+  <circle id="circle" style="stroke: black; fill: #000000;" cx="<%= BranchProduct.find_by(:product_id => item.product_id).latitude %>" cy=" <%= BranchProduct.find_by(:product_id => item.product_id).longitude %>" r="7"/>
   <% @myPoints1 += [[BranchProduct.find_by(:product_id => item.product_id).latitude, BranchProduct.find_by(:product_id => item.product_id).longitude]] %>
-  <text id="label" x="<%= BranchProduct.find_by(:product_id => item.product_id).latitude-10 %>" y="<%= BranchProduct.find_by(:product_id => item.product_id).longitude+15 %>" font-family="sans-serif" font-size="12px" fill="Black"> <%= Product.find(item.product_id).name %></text>
+  <text id="label" x="<%= BranchProduct.find_by(:product_id => item.product_id).latitude-10 %>" y="<%= BranchProduct.find_by(:product_id => item.product_id).longitude+15 %>" font-family="sans-serif" font-size="12px" fill="Black" visibility="hidden"> <%= Product.find(item.product_id).name %></text>
 <% end %>
 <% end %>
 <% end %>
 
 
-<% @order = 1 %> 
+<% @order = 0 %> 
 <% @intxpoints.zip(@intypoints).each do |x, y| %>
-  <text x="<%= x+10 %>" y="<%= y %>" font-family="sans-serif" font-size="12px" fill="Black"> <%= @order %> </text>
+  <text x="<%= x-3 %>" y="<%= y+4 %>" font-family="sans-serif" font-size="12px" fill="White"> <%= @order %> </text>
   <% @order += 1 %>
 <% end %> 
 
