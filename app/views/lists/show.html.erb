@@ -217,11 +217,10 @@
 <% @out = %x(python lib/assets/script.py #{@myPointsStringed} ) %>
 
 
-<p><%= @out %></p> 
+
 <% @points =  @out.split(',') %>
 <% @points[-1].delete!("\n") %>
 
-<p><%= @points %></p>
 
 
 
@@ -238,9 +237,6 @@
   <% end %> 
   <% @i +=1 %>
 <% end %>
-
-<p><%= @xpoints %></p>
-<p><%= @ypoints %></p>
 
 <% @intxpoints = @xpoints.map(&:to_i) %>
 <% @intypoints = @ypoints.map(&:to_i) %>
@@ -274,8 +270,20 @@
 <% end %> 
 
 </svg>
+
+
+
 </div>
 
+<div>
+  <% @intxpoints.zip(@intypoints).each do |x, y| %>
+  <% @myProducts.each do |item| %>
+    <% if BranchProduct.find_by(:product_id => item.product_id).longitude == y && BranchProduct.find_by(:product_id => item.product_id).latitude == x %>
+       <%= Product.find(item.product_id).name %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
 
 
 
