@@ -81,7 +81,7 @@
     border: 1px solid #000;
   }
   .table {
-    border-collapse: collapse !important;
+    /*border-collapse: collapse !important;*/
   }
   .table td,
   .table th {
@@ -286,7 +286,7 @@ textarea {
 }
 
 table {
-  border-collapse: collapse;
+  /*border-collapse: collapse;*/
 }
 
 caption {
@@ -1573,7 +1573,8 @@ pre code {
 
 .table thead th {
   vertical-align: bottom;
-  border-bottom: 2px solid #e9ecef;
+  font-size: 1em;
+  /*border-bottom: 2px solid #e9ecef;*/
 }
 
 .table tbody + tbody {
@@ -1593,6 +1594,13 @@ pre code {
   border: 1px solid #e9ecef;
 }
 
+table th:first-child{
+  border-radius: 1.5em 0 0 0;
+}
+
+table th:last-child{
+  border-radius: 0 1.5em 0 0;
+}
 .table-bordered th,
 .table-bordered td {
   border: 1px solid #e9ecef;
