@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   #root 'pages#home'
   root 'visitors#index'
   get 'list/show' => 'lists#send_email', as: :email_list
-  
+  post 'list/show' => 'lists#send_email'
   resources :users do
     get :make_admin, on: :member
   end

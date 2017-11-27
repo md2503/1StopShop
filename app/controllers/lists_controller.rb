@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     # @user = session[:user_id]
-    # UserMailer.send_list().deliver
+    #UserMailer.send_list().deliver
 
   end
 
@@ -19,7 +19,7 @@ class ListsController < ApplicationController
     else
       @users = User.all
     end
-    # UserMailer.send_list(user).deliver
+    #UserMailer.send_list(user).deliver
 
   end
 
@@ -79,7 +79,7 @@ class ListsController < ApplicationController
   end
   
   def send_email
-      # UserMailer.send_list(List.find(ListUser.find_by(:user_id => session[:user_id]).list_id)).deliver
+      UserMailer.send_list(List.find(ListUser.find_by(:user_id => session[:user_id]).list_id)).deliver
       #UserMailer.send_list()
       redirect_to lists_url
   end

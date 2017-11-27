@@ -13,6 +13,7 @@
     <tbody>
       <% ListUser.all.each do |check| %>
         <% if check.user_id == session[:user_id] %>
+        <% if List.find(check.list_id) != nil %>
         <% @l = List.find(check.list_id) %>
         <tr>
           <td><%= @l.name %></td>
@@ -22,6 +23,7 @@
           <td><%= link_to 'Delete', @l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
          
         </tr>
+      <% end %>
       <% end %>
       <% end %>
     </tbody>
