@@ -13,7 +13,7 @@
 //= require_mapbox.js
 //= require rails-ujs
 //= require jquery.js
-//= require bootstrap-sprockets
+//= require bootstrap.min.js
 //= require jquery.easing.js
 //= require bootstrap.bundle.js
 //= require contact_me.js
