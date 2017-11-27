@@ -1,11 +1,11 @@
 <h3 style="text-align:center; padding-top:100px;" class="section-heading text-uppercase">Login to your account</h3>
  <%= simple_form_for(:sessions) do |f| %>
     <%= f.error_notification %>
-    <div class="form-group" style="padding-left: 400px; padding-right:400px;">
+    <div class="form-group" style="text-align: left; padding-left: 100px; padding-right:100px; width: 50%; margin: auto;">
       <%= f.input :email, class: "form-control"%>
       <%= f.input :password, class: "form-control"%>
 </div>
-    <div class="form-actions" style="padding-left: 700px;">
-      <%= f.button :submit, "Login", class: "btn btn-primary text-uppercase" %>
-    </div>
+    <div class="form-actions" style="width: 50%; text-align: center; padding-left: 100px; padding-right: 100px; margin: auto;">
+    <%= f.button :submit, "Login", class: 'btn btn-primary text-uppercase', :style => 'width: 50%; padding-left: 100px; padding-right: 100px;' %>
+  </div>
 <% end %>

@@ -2,7 +2,7 @@
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-group" style="padding-left: 55px; padding-right:800px; ">
+  <div class="form-group" style="margin: auto; text-align: left; width: 50%">
     <%= f.input :firstname, class: "form-control" %>
     <%= f.input :lastname, class: "form-control" %>
     <%= f.input :email, class: "form-control" %>
@@ -11,8 +11,10 @@
     <%= f.label :dietary_reqs, "Dietary Preferences", class: "form-control" %>
     <%= f.select :dietary_reqs, [ "None", "Vegan", "Vegetarian", "Diabetic", "Gluten Free", "Nuts allergy", "Meat less", "Lactose free"], class: "form-control" %>
   </div>
-
-  <div class="form-actions" style="padding-left: 55px;">
-    <%= f.button :submit, class: 'btn btn-primary text-uppercase' %>
+<br>
+  <div class="form-actions" style="text-align: center; padding-left: 100px; padding-right: 100px; margin: auto;">
+    <%= f.button :submit, class: 'btn btn-primary text-uppercase', :style => 'width: 50%; padding-left: 100px; padding-right: 100px;' %>
   </div>
+  
+<br>
 <% end %>
