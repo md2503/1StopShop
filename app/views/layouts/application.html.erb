@@ -3,21 +3,6 @@
   <head>
     <title>Prep 'n' Go</title>
     <%= csrf_meta_tags %>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' /> 
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.css' rel='stylesheet' />
-    <!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>-->
-    <!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />-->
-    <!--<script src="https://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js"></script>-->
-    <!--<link href="https://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css" rel="stylesheet" />-->
-    <!--<link href='https://api.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.css' rel='stylesheet' />-->
-
-
-    <!--custom css file added above for your application development-->
-    <!--<script src='https://api.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.js'></script>-->
-    
-    <!--<script type="text/javascript" src="https://raw.githubusercontent.com/jashkenas/coffeescript/master/lib/coffee-script/coffee-script.js"></script>-->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -41,7 +26,5 @@
       <div class="bod" style="flex: 1 0 auto; margin-top:50px; height:100%;">
         <%= yield %>
       </div>
-      <!-- Footer -->
-      <%= render 'layouts/footer' %>
   </body>
 </html>
