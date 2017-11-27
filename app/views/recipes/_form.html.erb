@@ -10,23 +10,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group" style="margin-left:100px;">
-    <%= form.label :name, "Recipe Name" %>
-    <%= form.text_field :name, id: :recipe_name, class: "form-control" %>
+<br>
+<br>
+  <div class="form-group" style="margin-left:100px; text-align: center;">
+    <%= form.label :name, "Recipe Name", :style => 'margin: auto;'%>
+    <%= form.text_field :name, id: :recipe_name, class: "form-control", :style => 'text-align: center; width: 50%; margin: auto;'%>
   </div>
 
-  <div class="form-group" style="margin-left:100px;">
+  <div class="form-group" style="margin-left:100px; text-align: center">
     <%= form.label :dietaryreqs, "Suitable for" %>
     <%= form.select :dietaryreqs, [ "None", "Vegan", "Vegetarian", "Diabetic", "Gluten Free", "Nuts allergy", "Meat less", "Lactose free"], class: "form-control" %>
   </div>
 
-  <div class="form-group" style="margin-left:100px;">
+  <div class="form-group" style="margin-left:100px; text-align: center">
     <%= form.label :serving %>
-    <%= form.number_field :serving, id: :recipe_serving, class: "form-control" %>
+    <%= form.number_field :serving, id: :recipe_serving, class: "form-control", :style => 'text-align: center; width: 50%; margin: auto;'%>
   </div>
-
-  <div class="form-actions">
-    <%= form.submit :class => 'btn btn-primary text-uppercase', :style => 'margin-left:50px; margin-top:25px;'%>
+  
+  <div class="form-actions" style="text-align: center; padding-left: 100px; margin: auto;">
+    <%= form.submit :class => 'btn btn-primary text-uppercase', :style => 'width: 50%; padding-left: 120px; padding-right: 100px;'%>
   </div>
 <% end %>
