@@ -1,19 +1,18 @@
 <div style="display:flex; flex-direction:column;">
-<div style="width;100%;">
-  <h3 style="margin-top:75px; margin-left:200px; margin-bottom:50px; position:absolute;">Recipes</h3>
-  <div align="center" ><%= button_to '+ New Recipe', new_recipe_path, class: 'btn btn-primary text-uppercase', style: 'background-color: #fed136; margin-top:75px; margin-bottom:50px;'%></div>
-</div>
-
-
-<li><%= link_to 'No Preferance', noPreferance_path %></li>
-<li><%= link_to 'Vegan', vegan_path %></li>
-<li><%= link_to 'Vegetarian', vegetarian_path %></li>
-<li><%= link_to 'Diabetic', diabetic_path %></li>
-<li><%= link_to 'Gluten Free', glutenFree_path %></li>
-<li><%= link_to 'Nuts Allergy', nutsAllergy_path %></li>
-<li><%= link_to 'Meat Less', meatLess_path %></li>
-<li><%= link_to 'Lactose Free', lactoseFree_path %></li>
-
+  <div style="display:flex; justify-content: space-between; margin-right:10%; margin-top:2%;">
+    <h3 style="margin-top:75px; margin-left:200px; margin-bottom:50px;">Recipes</h3>
+    <%= button_to '+ New Recipe', new_recipe_path, class: 'btn btn-primary text-uppercase', style: 'margin-top:75px; margin-bottom:50px; margin-left:450px;'%>
+    <div style="display:flex; flex-direction:column; border: 5px solid black; border-radius:15px; padding-left:20px; padding-right:30px;">
+      <%= link_to 'No Preference', noPreferance_path %>
+      <%= link_to 'Vegan', vegan_path %>
+      <%= link_to 'Vegetarian', vegetarian_path %>
+      <%= link_to 'Diabetic', diabetic_path %>
+      <%= link_to 'Gluten Free', glutenFree_path %>
+      <%= link_to 'Nuts Allergy', nutsAllergy_path %>
+      <%= link_to 'Meat Less', meatLess_path %>
+      <%= link_to 'Lactose Free', lactoseFree_path %>
+    </div>
+  </div>
 <!--<table>-->
 <!--  <thead>-->
 <!--    <tr>-->
