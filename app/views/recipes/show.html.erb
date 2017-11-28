@@ -1,34 +1,32 @@
 <p id="notice"><%= notice %></p>
+<br>
+<br>
+  
+<div style="border: black solid 5px; border-radius:20px; margin-left: 20%; margin-right:20%;">
+  <h1 style="text-align:center;" class="section-heading text-uppercase"><%= @recipe.name %></h1>
+  <br>
+  <h3 style="text-align:center; padding-top:100px; text-decoration: underline;" class="section-heading text-uppercase">Dietary requirements:</h3>
+  <h4 style="text-align:center;" class="section-subheading"><%= @recipe.dietaryreqs %></h4>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+  <h3 style="text-align:center; padding-top:100px; text-decoration: underline;" class="section-heading text-uppercase">Serving:</h3>
+  <h4 style="text-align:center;" class="section-subheading"><%= @recipe.serving %></h4>
 
-<p>
-  <strong>Dietaryreqs:</strong>
-  <%= @recipe.dietaryreqs %>
-</p>
-
-<p>
-  <strong>Serving:</strong>
-  <%= @recipe.serving %>
-</p>
-
-
-<p>Ingredients for this recipe:</p>
+</div>
+<br>
+<br>
+<h3 style="text-align:center;" class="section-subheading">Ingredients for this recipe:</h3>
 <% @ingredients = [] %>
 <% ProductRecipe.all.each do |ingredient| %>
 <% if ingredient.recipe_id == @recipe.id %>
 <% @ingredients += [ingredient] %>
 <%end%>
 <%end%>
-<table style="margin-left:50px;">
+<table style="border: black solid 5px; border-radius:20px; margin-left:20%; margin-right:20%; width:60%;" class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Quantity</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -56,11 +54,13 @@
   </tbody>
 </table>
 
-<div id="cont2" class="container2" style="float: left; width:50%;">
-  <h3 style="margin-left:50px; padding-top:15px;">Available Ingredients</h3>
-  <div class="table-responsive" style="padding-left:50px; padding-top:30px; padding-bottom:30px;">
+<br>
+<br>
+<div id="cont2" class="container2" style="width:80%;">
+<h3 style="text-align:center; padding-left:25%" class="section-subheading">Additional ingredients available:</h3>
+  <div class="table-responsive">
     <div id="flow" style="overflow-y:auto; height:300px;">
-      <table class="table table-striped">
+      <table style="border: black solid 5px; border-radius:20px; margin-left:33%; margin-right:20%; width:60%;" class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -84,7 +84,8 @@
       </table>
     </div>
   </div>  
-  <div style="margin-left:50px;"><%= button_to 'New Product', new_product_path, class: 'btn btn-primary text-uppercase' %></div>
+  <br>
+  <div style="margin-left:50%;"><%= button_to 'New Product', new_product_path, class: 'btn btn-primary text-uppercase' %></div>
 </div>
 
 
