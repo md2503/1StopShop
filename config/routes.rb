@@ -83,6 +83,8 @@ Rails.application.routes.draw do
     post '/remove_from_list/:product_id/:list_id' => 'remove_from_list#show' 
     get '/remove_from_list/:product_id/:list_id' => 'remove_from_list#show' 
   end
+  
+  post 'lists/save' => 'lists#screenshot'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
